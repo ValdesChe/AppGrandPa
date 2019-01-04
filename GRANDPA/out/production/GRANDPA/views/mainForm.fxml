@@ -36,7 +36,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnProfil" alignment="TOP_LEFT" layoutX="7.0" layoutY="119.0" mnemonicParsing="false" onAction="#showProfilPage" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MON PROFIL" textFill="#5432d9">
+            <Button fx:id="btnProfil" alignment="TOP_LEFT" layoutX="7.0" layoutY="119.0" mnemonicParsing="false" onAction="#showProfilPage" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MON PROFIL">
                <font>
                   <Font name="Arial Narrow" size="20.0" />
                </font>
