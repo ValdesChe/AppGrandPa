@@ -1,11 +1,4 @@
 package controllers;
-<<<<<<< HEAD
-public class Controller {
-    public int vt;
-=======
-
->>>>>>> f1cb014569f744f40e62b91a3507fdd1043bebf4
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
