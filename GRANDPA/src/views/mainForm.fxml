@@ -9,58 +9,58 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
    <children>
-      <Pane prefHeight="500.0" prefWidth="232.0" style="-fx-background-color: #1B6CD7;">
+      <Pane prefHeight="500.0" prefWidth="232.0" style="-fx-background-color: #000d33;">
          <children>
-            <Label layoutX="48.0" layoutY="30.0" text="GRANDPA" textFill="WHITE">
+            <Label layoutX="48.0" layoutY="30.0" prefHeight="24.0" prefWidth="126.0" text="GRANDPA" textFill="WHITE">
                <font>
-                  <Font name="SansSerif Regular" size="24.0" />
+                  <Font name="Book Antiqua Italic" size="25.0" />
                </font>
             </Label>
-            <Button alignment="TOP_LEFT" layoutX="14.0" layoutY="170.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="CONTACTS">
+            <Button alignment="TOP_LEFT" layoutX="7.0" layoutY="168.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="CONTACTS">
                <font>
-                  <Font size="20.0" />
+                  <Font name="Arial Narrow" size="20.0" />
                </font>
             </Button>
-            <Button alignment="TOP_LEFT" layoutX="14.0" layoutY="215.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="AGENDA">
+            <Button alignment="TOP_LEFT" layoutX="8.0" layoutY="218.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="AGENDA">
                <font>
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button alignment="TOP_LEFT" layoutX="14.0" layoutY="261.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MESSAGERIE">
+            <Button alignment="TOP_LEFT" layoutX="8.0" layoutY="269.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MESSAGERIE">
                <font>
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button alignment="TOP_LEFT" layoutX="14.0" layoutY="307.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="HORAIRES DE PRIERE">
+            <Button alignment="TOP_LEFT" layoutX="7.0" layoutY="320.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="HORAIRES DE PRIERE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnProfil" alignment="TOP_LEFT" layoutX="14.0" layoutY="126.0" mnemonicParsing="false" onAction="#showProfilPage" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MON PROFIL">
+            <Button fx:id="btnProfil" alignment="TOP_LEFT" layoutX="7.0" layoutY="119.0" mnemonicParsing="false" onAction="#showProfilPage" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MON PROFIL" textFill="#5432d9">
                <font>
-                  <Font size="20.0" />
+                  <Font name="Arial Narrow" size="20.0" />
                </font>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button alignment="TOP_LEFT" layoutX="14.0" layoutY="352.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="PHARMACIE">
+            <Button alignment="TOP_LEFT" layoutX="7.0" layoutY="371.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="PHARMACIE">
                <font>
                   <Font size="21.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="232.0" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: #bcc4d1;">
+      <Pane layoutX="232.0" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: #ffffff;">
          <children>
             <Label fx:id="quitter" layoutX="447.0" layoutY="-7.0" onMousePressed="#handleButtonAction" text="x" textFill="#fc0909">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="134.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="316.0" fitWidth="468.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../ressources/welcome.jpg" />
+                  <Image url="@../ressources/img/welcome.jpg" />
                </image>
             </ImageView>
          </children>
