@@ -1,17 +1,8 @@
-# NetBeans specific #
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-
 
 # INTELLIJ Specific #
 
 # Class Files #
-*.class
+/GRANDPA/*.class
 
 
 
@@ -21,27 +12,7 @@ nb-configuration.xml
 *.iml
 
 ## Directory-based project format:
-.idea/
-# if you remove the above rule, at least ignore the following:
-
-# User-specific stuff:
-# .idea/workspace.xml
-# .idea/tasks.xml
-# .idea/dictionaries
-
-# Sensitive or high-churn files:
-# .idea/dataSources.ids
-# .idea/dataSources.xml
-# .idea/sqlDataSources.xml
-# .idea/dynamic.xml
-# .idea/uiDesigner.xml
-
-# Gradle:
-# .idea/gradle.xml
-# .idea/libraries
-
-# Mongo Explorer plugin:
-# .idea/mongoSettings.xml
+/GRANDPA/.idea/
 
 ## File-based project format:
 *.ipr
@@ -50,14 +21,14 @@ nb-configuration.xml
 ## Plugin-specific files:
 
 # IntelliJ
-/out/
+/GRANDPA/out/
 
 # mpeltonen/sbt-idea plugin
-.idea_modules/
+/GRANDPA/.idea_modules/
 
 
 
 # Package Files #
-*.jar
-*.war
-*.ear
+/GRANDPA/*.jar
+/GRANDPA/*.war
+/GRANDPA/*.ear
