@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -7,7 +8,6 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
    <children>
@@ -55,11 +55,16 @@
       </Pane>
       <Pane layoutX="232.0" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: #bcc4d1;">
          <children>
-            <Label layoutX="206.0" layoutY="88.0" text="BIENVENUE SIR">
+            <Label layoutX="448.0" layoutY="-2.0" text="X" textFill="#fc0909">
                <font>
-                  <Font name="Baskerville Old Face" size="32.0" />
+                  <Font name="Baskerville Old Face" size="20.0" />
                </font>
             </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="134.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/welcome.jpg" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>
