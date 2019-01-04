@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="views.Contacts"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <SplitPane dividerPositions="0.9583333333333334" prefHeight="375.0" prefWidth="74.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+        </items>
+      </SplitPane>
+   </left>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="38.0" layoutY="36.0" text="Liste des contacts">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="263.0" layoutY="36.0" text="Ajouter un nouveau">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ListView layoutX="38.0" layoutY="99.0" prefHeight="200.0" prefWidth="200.0" />
+            <Label layoutX="271.0" layoutY="99.0" text="Nom :" />
+            <Label layoutX="271.0" layoutY="128.0" text="Prenom :" />
+            <Label layoutX="271.0" layoutY="156.0" text="Tél :" />
+            <Label layoutX="270.0" layoutY="188.0" text="Email :" />
+            <Label layoutX="270.0" layoutY="219.0" text="Ville :" />
+            <TextField layoutX="333.0" layoutY="95.0" />
+            <TextField layoutX="333.0" layoutY="125.0" />
+            <TextField layoutX="333.0" layoutY="155.0" />
+            <TextField layoutX="333.0" layoutY="185.0" />
+            <TextField layoutX="333.0" layoutY="216.0" />
+            <Button layoutX="430.0" layoutY="264.0" mnemonicParsing="false" text="Ajouter" />
+            <Button layoutX="277.0" layoutY="264.0" mnemonicParsing="false" text="Annuler" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

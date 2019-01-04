@@ -1,19 +1,20 @@
 package main;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../views/sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/mainForm.fxml"));
         primaryStage.setTitle("REMIND ME");
-        primaryStage.setScene(new Scene(root, 500, 275));
+        primaryStage.setScene(new Scene(root, 700, 500));
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         /*Platform.runLater(new Runnable() {
             @Override
             public void run() {
