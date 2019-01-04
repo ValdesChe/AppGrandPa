@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
@@ -52,9 +53,9 @@
       </Pane>
       <Pane fx:id="label" layoutX="232.0" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: #bcc4d1;">
          <children>
-            <Label fx:id="quitter" layoutX="448.0" layoutY="-2.0" onMousePressed="#handleButtonAction" text="X" textFill="#fc0909">
+            <Label fx:id="quitter" layoutX="447.0" layoutY="-7.0" onMousePressed="#handleButtonAction" text="x" textFill="#fc0909">
                <font>
-                  <Font name="Baskerville Old Face" size="20.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="134.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">

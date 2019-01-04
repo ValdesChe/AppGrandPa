@@ -20,6 +20,9 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 700, 500));
         primaryStage.initStyle(StageStyle.UNDECORATED);
 
+
+
+
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -37,12 +40,6 @@ public class Main extends Application {
             }
         });
 
-        root.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-
-            }
-        });
         /*Platform.runLater(new Runnable() {
             @Override
             public void run() {
