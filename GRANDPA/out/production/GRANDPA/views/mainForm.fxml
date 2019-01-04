@@ -3,9 +3,6 @@
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -53,9 +50,9 @@
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="232.0" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: #bcc4d1;">
+      <Pane fx:id="label" layoutX="232.0" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: #bcc4d1;">
          <children>
-            <Label layoutX="448.0" layoutY="-2.0" text="X" textFill="#fc0909">
+            <Label fx:id="quitter" layoutX="448.0" layoutY="-2.0" onMousePressed="#handleButtonAction" text="X" textFill="#fc0909">
                <font>
                   <Font name="Baskerville Old Face" size="20.0" />
                </font>

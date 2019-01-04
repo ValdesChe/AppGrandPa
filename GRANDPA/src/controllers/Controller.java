@@ -1,28 +1,22 @@
 package controllers;
 
+
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class Controller implements Initializable{
+public class Controller{
 
     @FXML
-    private Label label;
+    private Label quitter;
 
     @FXML
-    private void handleButtonAction(MouseEvent event){
+    private void handleButtonAction() {
         System.exit(0);
     }
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb){
-
-    }
 
 
 }
+
+
