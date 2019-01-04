@@ -21,8 +21,6 @@ public class Main extends Application {
         primaryStage.initStyle(StageStyle.UNDECORATED);
 
 
-
-
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

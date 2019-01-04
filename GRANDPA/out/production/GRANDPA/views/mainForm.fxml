@@ -36,7 +36,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button alignment="TOP_LEFT" layoutX="14.0" layoutY="126.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MON PROFIL">
+            <Button fx:id="btnProfil" alignment="TOP_LEFT" layoutX="14.0" layoutY="126.0" mnemonicParsing="false" onAction="#showProfilPage" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MON PROFIL">
                <font>
                   <Font size="20.0" />
                </font>
@@ -51,7 +51,7 @@
             </Button>
          </children>
       </Pane>
-      <Pane fx:id="label" layoutX="232.0" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: #bcc4d1;">
+      <Pane layoutX="232.0" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: #bcc4d1;">
          <children>
             <Label fx:id="quitter" layoutX="447.0" layoutY="-7.0" onMousePressed="#handleButtonAction" text="x" textFill="#fc0909">
                <font>

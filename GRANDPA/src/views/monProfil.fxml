@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="views.MonProfil"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+    <children>
+        <Pane prefHeight="500.0" prefWidth="232.0" style="-fx-background-color: #1B6CD7;">
+            <children>
+                <Label layoutX="48.0" layoutY="30.0" text="GRANDPA" textFill="WHITE">
+                    <font>
+                        <Font name="SansSerif Regular" size="24.0" />
+                    </font>
+                </Label>
+                <Button alignment="TOP_LEFT" layoutX="14.0" layoutY="170.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="CONTACTS">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button alignment="TOP_LEFT" layoutX="14.0" layoutY="215.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="AGENDA">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
+                <Button alignment="TOP_LEFT" layoutX="14.0" layoutY="261.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MESSAGERIE">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
+                <Button alignment="TOP_LEFT" layoutX="14.0" layoutY="307.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="HORAIRES DE PRIERE">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnProfil" alignment="TOP_LEFT" layoutX="14.0" layoutY="126.0" mnemonicParsing="false" onAction="#showProfilPage" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MON PROFIL" textFill="#5432d9">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Button>
+                <Button alignment="TOP_LEFT" layoutX="14.0" layoutY="352.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="PHARMACIE">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <Pane layoutX="232.0" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: #bcc4d1;">
+            <children>
+                <Label fx:id="quitter" layoutX="447.0" layoutY="-7.0" onMousePressed="#handleButtonAction" text="x" textFill="#fc0909">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+            <Label layoutX="98.0" layoutY="135.0" text="MON PROFIL">
+               <font>
+                  <Font size="43.0" />
+               </font>
+            </Label>
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>
