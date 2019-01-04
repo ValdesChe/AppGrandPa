@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
    <children>
@@ -38,7 +36,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button alignment="TOP_LEFT" layoutX="14.0" layoutY="126.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MON PROFIL">
+            <Button fx:id="btnProfil" alignment="TOP_LEFT" layoutX="14.0" layoutY="126.0" mnemonicParsing="false" onAction="#showProfilPage" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MON PROFIL">
                <font>
                   <Font size="20.0" />
                </font>
@@ -55,11 +53,16 @@
       </Pane>
       <Pane layoutX="232.0" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: #bcc4d1;">
          <children>
-            <Label layoutX="206.0" layoutY="88.0" text="BIENVENUE SIR">
+            <Label fx:id="quitter" layoutX="447.0" layoutY="-7.0" onMousePressed="#handleButtonAction" text="x" textFill="#fc0909">
                <font>
-                  <Font name="Baskerville Old Face" size="32.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="134.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/welcome.jpg" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>
