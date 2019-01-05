@@ -1,16 +1,20 @@
 package controllers;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
 import java.io.IOException;
 
 public class Controller{
+    private double xOffset = 0;
+    private double yOffset = 0;
 
 
     @FXML
@@ -38,6 +42,22 @@ public class Controller{
 
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
 
+            monProfile.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    xOffset= event.getSceneX();
+                    yOffset= event.getSceneY();
+                }
+            });
+
+            monProfile.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    window.setX(event.getScreenX()-xOffset);
+                    window.setY(event.getScreenY()-yOffset);
+                }
+            });
+
             window.setScene(s);
             window.show();
         }
@@ -47,8 +67,23 @@ public class Controller{
             Parent contacts= FXMLLoader.load(getClass().getResource("../views/contacts.fxml"));
             Scene s = new Scene(contacts, 700, 500);
 
-
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+
+            contacts.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    xOffset= event.getSceneX();
+                    yOffset= event.getSceneY();
+                }
+            });
+
+            contacts.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    window.setX(event.getScreenX()-xOffset);
+                    window.setY(event.getScreenY()-yOffset);
+                }
+            });
 
             window.setScene(s);
             window.show();
@@ -62,6 +97,22 @@ public class Controller{
 
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
 
+            agenda.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    xOffset= event.getSceneX();
+                    yOffset= event.getSceneY();
+                }
+            });
+
+            agenda.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    window.setX(event.getScreenX()-xOffset);
+                    window.setY(event.getScreenY()-yOffset);
+                }
+            });
+
             window.setScene(s);
             window.show();
         }
@@ -71,8 +122,23 @@ public class Controller{
             Parent messagerie= FXMLLoader.load(getClass().getResource("../views/messagerie.fxml"));
             Scene s = new Scene(messagerie, 700, 500);
 
-
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+
+            messagerie.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    xOffset= event.getSceneX();
+                    yOffset= event.getSceneY();
+                }
+            });
+
+            messagerie.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    window.setX(event.getScreenX()-xOffset);
+                    window.setY(event.getScreenY()-yOffset);
+                }
+            });
 
             window.setScene(s);
             window.show();
@@ -86,6 +152,23 @@ public class Controller{
 
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
 
+            heurePriere.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    xOffset= event.getSceneX();
+                    yOffset= event.getSceneY();
+                }
+            });
+
+            heurePriere.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    window.setX(event.getScreenX()-xOffset);
+                    window.setY(event.getScreenY()-yOffset);
+                }
+            });
+
+
             window.setScene(s);
             window.show();
         }
@@ -95,15 +178,35 @@ public class Controller{
             Parent pharmacie= FXMLLoader.load(getClass().getResource("../views/pharmacie.fxml"));
             Scene s = new Scene(pharmacie, 700, 500);
 
-
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+
+            pharmacie.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    xOffset= event.getSceneX();
+                    yOffset= event.getSceneY();
+                }
+            });
+
+            pharmacie.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    window.setX(event.getScreenX()-xOffset);
+                    window.setY(event.getScreenY()-yOffset);
+                }
+            });
+
 
             window.setScene(s);
             window.show();
         }
 
 
+
     }
+
+
+
 
 
 

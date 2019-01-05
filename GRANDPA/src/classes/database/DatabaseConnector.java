@@ -82,7 +82,9 @@ public class DatabaseConnector {
             }
             else {
                 String query1 = "CREATE TABLE " + TableName + "("
-                        + "id_event integer primary key not null AUTO_INCREMENT,\n"
+                        + "id_event integer not null primary key\n" +
+                        "        GENERATED ALWAYS AS IDENTITY\n" +
+                        "        (START WITH 1, INCREMENT BY 1),\n"
                         + "title VARCHAR(100) not null ,\n"
                         + "description VARCHAR(255) ,\n"
                         + "dateEvent date not null,\n"
@@ -115,7 +117,9 @@ public class DatabaseConnector {
             }
             else {
                 String query1 = "CREATE TABLE " + TableName + "("
-                        + "id_contact integer primary key not null auto_increment,\n"
+                        + "id_contact integer not null primary key\n" +
+                        "        GENERATED ALWAYS AS IDENTITY\n" +
+                        "        (START WITH 1, INCREMENT BY 1),\n"
                         + "nom varchar(30) not null,\n"
                         + "prenom varchar(30),\n"
                         + "tel  varchar(30),\n"
@@ -151,11 +155,13 @@ public class DatabaseConnector {
             }
             else {
                 String query1 = "CREATE TABLE " + TableName + "("
-                        + "id_medicament integer primary key not null AUTO_INCREMENT,\n"
+                        + "id_medicament integer not null primary key\n" +
+                        "        GENERATED ALWAYS AS IDENTITY\n" +
+                        "        (START WITH 1, INCREMENT BY 1),\n"
                         + "intitule varchar(30) not null,\n"
                         + "quantite integer , \n"
                         // dose  = dose totale par jour
-                        + "dose  NUMBER,\n"
+                        + "dose  integer,\n"
                         + "nbr_fois int\n"
                         + ")";
                 stmt.execute(query1);
