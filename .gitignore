@@ -23,6 +23,8 @@ GRANDPA/.idea/
 # IntelliJ
 /GRANDPA/out/
 
+/GRANDPA/grandPaDatabase/
+
 # mpeltonen/sbt-idea plugin
 /GRANDPA/.idea_modules/
 

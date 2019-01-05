@@ -45,7 +45,7 @@
                 </Button>
                 <Button fx:id="btnPharmacie" alignment="TOP_LEFT" layoutX="7.0" layoutY="371.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #000d33; -fx-border-color: #FFFFFF;" text="PHARMACIE" textFill="WHITE">
                     <font>
-                        <Font size="21.0" />
+                        <Font name="System Bold" size="21.0" />
                     </font>
                 </Button>
             </children>
@@ -57,11 +57,20 @@
                         <Font name="System Bold" size="25.0" />
                     </font>
                 </Label>
-                <Label layoutX="125.0" layoutY="185.0" prefHeight="36.0" prefWidth="218.0" text="Pharmacie">
+                <Label layoutX="96.0" layoutY="23.0" prefHeight="36.0" prefWidth="277.0" text="Liste des medicaments">
                     <font>
                         <Font name="Arial Italic" size="25.0" />
                     </font>
                 </Label>
+            <TableView layoutX="13.0" layoutY="66.0" prefHeight="198.0" prefWidth="443.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn prefWidth="75.0" text="Column X" />
+              </columns>
+            </TableView>
             </children>
         </Pane>
     </children>
