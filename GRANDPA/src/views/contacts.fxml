@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ContactsController">
     <children>
@@ -57,11 +63,6 @@
                         <Font name="System Bold" size="25.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="32.0" layoutY="193.0" prefHeight="46.0" prefWidth="94.0" text="Nom ">
-                    <font>
-                        <Font name="Arial Italic" size="25.0" />
-                    </font>
-                </Label>
                 <Label layoutX="22.0" layoutY="358.0" prefHeight="36.0" prefWidth="127.0" text="Telephone">
                     <font>
                         <Font name="Arial Italic" size="18.0" />
@@ -82,17 +83,29 @@
                         <Font name="Arial" size="18.0" />
                     </font>
                 </Label>
-                <TextField layoutX="190.0" layoutY="363.0" style="-fx-background-color: #DCDCDC;" />
-                <TextField layoutX="190.0" layoutY="332.0" style="-fx-background-color: #DCDCDC;" />
-                <TextField layoutX="190.0" layoutY="395.0" style="-fx-background-color: #DCDCDC;" />
-                <TextField layoutX="190.0" layoutY="427.0" style="-fx-background-color: #DCDCDC;" />
-                <TextField layoutX="190.0" layoutY="459.0" style="-fx-background-color: #DCDCDC;" />
-                <Button layoutX="366.0" layoutY="454.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Ajouter" textFill="WHITE">
+                <TextField fx:id="phoneTfd" layoutX="121.0" layoutY="363.0" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #DCDCDC;" />
+                <TextField fx:id="nomTfd" layoutX="121.0" layoutY="332.0" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #DCDCDC;" />
+                <TextField fx:id="emailTfd" layoutX="121.0" layoutY="395.0" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #DCDCDC;" />
+                <TextField fx:id="adresseTfd" layoutX="121.0" layoutY="427.0" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #DCDCDC;" />
+                <TextField fx:id="villeTfd" layoutX="121.0" layoutY="459.0" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #DCDCDC;" />
+                <Button layoutX="366.0" layoutY="454.0" mnemonicParsing="false" onAction="#addContact" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Ajouter" textFill="WHITE">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </Button>
-            <ListView layoutX="14.0" layoutY="43.0" prefHeight="235.0" prefWidth="441.0" style="-fx-background-color: #DCDCDC;" />
+
+
+<!--
+            <ListView fx:id="listContacts" layoutX="14.0" layoutY="43.0" prefHeight="235.0" prefWidth="441.0" style="-fx-background-color: #DCDCDC;">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Ahmed" />
+                        <String fx:value="Valdor" />
+
+                    </FXCollections>
+                </items>
+            </ListView>
+            -->
             <Label layoutX="22.0" layoutY="327.0" prefHeight="36.0" prefWidth="127.0" text="Nom">
                <font>
                   <Font name="Arial Italic" size="18.0" />
@@ -103,11 +116,21 @@
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="16.0" layoutY="8.0" prefHeight="27.0" prefWidth="304.0" text="LA LISTE DES CONTACTS" textFill="#000d33" underline="true">
+            <Label layoutX="16.0" layoutY="8.0" prefHeight="27.0" prefWidth="218.0" text="LISTE DES CONTACTS" textFill="#000d33" underline="true">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
+            <TableView layoutX="6.0" layoutY="41.0" prefHeight="229.0" prefWidth="448.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="NOM" />
+                <TableColumn prefWidth="86.0" text="TELEPHONE" />
+                  <TableColumn prefWidth="114.0" text="EMAIL" />
+                  <TableColumn prefWidth="68.0" text="ADRESSE" />
+                  <TableColumn prefWidth="103.0" text="VILLE" />
+              </columns>
+            </TableView>
+            <Separator layoutY="279.0" prefHeight="5.0" prefWidth="468.0" />
             </children>
         </Pane>
     </children>
