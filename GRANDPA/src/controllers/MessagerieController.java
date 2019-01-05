@@ -1,4 +1,4 @@
 package controllers;
 
-public class MessagerieController {
+public class MessagerieController extends Controller{
 }

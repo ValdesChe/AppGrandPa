@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.AgendaController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AgendaController">
+    <children>
+        <Pane prefHeight="500.0" prefWidth="232.0" style="-fx-background-color: #000d33;">
+            <children>
+                <Label layoutX="48.0" layoutY="30.0" text="GRANDPA" textFill="WHITE">
+                    <font>
+                        <Font name="SansSerif Regular" size="24.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnContacts" alignment="TOP_LEFT" layoutX="7.0" layoutY="168.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="CONTACTS">
+                    <font>
+                        <Font name="Arial Narrow" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnAgenda" alignment="TOP_LEFT" layoutX="8.0" layoutY="218.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #000d33; -fx-border-color: #FFFFFF;" text="AGENDA" textFill="WHITE">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnMessagerie" alignment="TOP_LEFT" layoutX="8.0" layoutY="269.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MESSAGERIE">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnHDP" alignment="TOP_LEFT" layoutX="7.0" layoutY="320.0" mnemonicParsing="false" onAction="#showPages" prefHeight="36.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="HORAIRES DE PRIERE">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnProfil" alignment="TOP_LEFT" layoutX="7.0" layoutY="119.0" mnemonicParsing="false" onAction="#showPages" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MON PROFIL">
+                    <font>
+                        <Font name="Arial Narrow" size="20.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Button>
+                <Button fx:id="btnPharmacie" alignment="TOP_LEFT" layoutX="7.0" layoutY="371.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="PHARMACIE">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <Pane layoutX="232.0" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: #bcc4d1;">
+            <children>
+                <Label fx:id="quitter" layoutX="447.0" layoutY="-7.0" onMousePressed="#handleButtonAction" text="x" textFill="#fc0909">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="151.0" layoutY="203.0" prefHeight="47.0" prefWidth="154.0" text="Agenda">
+                    <font>
+                        <Font name="Arial Italic" size="25.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>

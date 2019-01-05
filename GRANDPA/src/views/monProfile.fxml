@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProfileController">
     <children>
         <Pane prefHeight="500.0" prefWidth="232.0" style="-fx-background-color: #000d33;">
             <children>
@@ -17,27 +17,27 @@
                         <Font name="SansSerif Regular" size="24.0" />
                     </font>
                 </Label>
-                <Button fx:id="btnContacts" alignment="TOP_LEFT" layoutX="7.0" layoutY="168.0" mnemonicParsing="false" onAction="#showContactsPage" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="CONTACTS">
+                <Button fx:id="btnContacts" alignment="TOP_LEFT" layoutX="7.0" layoutY="168.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="CONTACTS">
                     <font>
                         <Font name="Arial Narrow" size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="TOP_LEFT" layoutX="8.0" layoutY="218.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="AGENDA">
+                <Button fx:id="btnAgenda" alignment="TOP_LEFT" layoutX="8.0" layoutY="218.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="AGENDA">
                     <font>
                         <Font size="21.0" />
                     </font>
                 </Button>
-                <Button alignment="TOP_LEFT" layoutX="8.0" layoutY="269.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MESSAGERIE">
+                <Button fx:id="btnMessagerie" alignment="TOP_LEFT" layoutX="8.0" layoutY="269.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MESSAGERIE">
                     <font>
                         <Font size="21.0" />
                     </font>
                 </Button>
-                <Button alignment="TOP_LEFT" layoutX="7.0" layoutY="320.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="HORAIRES DE PRIERE">
+                <Button fx:id="btnHDP" alignment="TOP_LEFT" layoutX="7.0" layoutY="320.0" mnemonicParsing="false" onAction="#showPages" prefHeight="36.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="HORAIRES DE PRIERE">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnProfil" alignment="TOP_LEFT" layoutX="7.0" layoutY="119.0" mnemonicParsing="false" onAction="#showProfilPage" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #000d33; -fx-border-color: #FFFFFF;" text="MON PROFIL" textFill="WHITE">
+                <Button fx:id="btnProfil" alignment="TOP_LEFT" layoutX="7.0" layoutY="119.0" mnemonicParsing="false" onAction="#showPages" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #000d33; -fx-border-color: #FFFFFF;" text="MON PROFIL" textFill="WHITE">
                     <font>
                         <Font name="Arial Narrow" size="20.0" />
                     </font>
@@ -45,7 +45,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button alignment="TOP_LEFT" layoutX="7.0" layoutY="371.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="PHARMACIE">
+                <Button fx:id="btnPharmacie" alignment="TOP_LEFT" layoutX="7.0" layoutY="371.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="PHARMACIE">
                     <font>
                         <Font size="21.0" />
                     </font>

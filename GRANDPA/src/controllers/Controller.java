@@ -14,10 +14,10 @@ public class Controller{
 
 
     @FXML
-    private Label quitter;
+    protected Label quitter;
 
     @FXML
-    private Button btnProfil, btnContacts, btnAgenda, btnMessagerie, btnHDP, btnPharmacie;
+    protected Button btnProfil, btnContacts, btnAgenda, btnMessagerie, btnHDP, btnPharmacie;
 
 
     @FXML
@@ -32,8 +32,8 @@ public class Controller{
 
         if (actionEvent.getSource().equals(btnProfil))
         {
-            Parent monProfil= FXMLLoader.load(getClass().getResource("../views/monProfil.fxml"));
-            Scene s = new Scene(monProfil, 700, 500);
+            Parent monProfile= FXMLLoader.load(getClass().getResource("../views/monProfile.fxml"));
+            Scene s = new Scene(monProfile, 700, 500);
 
 
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -42,7 +42,7 @@ public class Controller{
             window.show();
         }
 
-        if (actionEvent.getSource().equals(btnContacts))
+        else if (actionEvent.getSource().equals(btnContacts))
         {
             Parent contacts= FXMLLoader.load(getClass().getResource("../views/contacts.fxml"));
             Scene s = new Scene(contacts, 700, 500);
@@ -54,7 +54,7 @@ public class Controller{
             window.show();
         }
 
-        if (actionEvent.getSource().equals(btnAgenda))
+        else if (actionEvent.getSource().equals(btnAgenda))
         {
             Parent agenda= FXMLLoader.load(getClass().getResource("../views/agenda.fxml"));
             Scene s = new Scene(agenda, 700, 500);
@@ -66,7 +66,7 @@ public class Controller{
             window.show();
         }
 
-        if (actionEvent.getSource().equals(btnMessagerie))
+        else if (actionEvent.getSource().equals(btnMessagerie))
         {
             Parent messagerie= FXMLLoader.load(getClass().getResource("../views/messagerie.fxml"));
             Scene s = new Scene(messagerie, 700, 500);
@@ -78,7 +78,7 @@ public class Controller{
             window.show();
         }
 
-        if (actionEvent.getSource().equals(btnHDP))
+        else if (actionEvent.getSource().equals(btnHDP))
         {
             Parent heurePriere= FXMLLoader.load(getClass().getResource("../views/heurePriere.fxml"));
             Scene s = new Scene(heurePriere, 700, 500);
@@ -90,7 +90,7 @@ public class Controller{
             window.show();
         }
 
-        if (actionEvent.getSource().equals(btnPharmacie))
+        else if (actionEvent.getSource().equals(btnPharmacie))
         {
             Parent pharmacie= FXMLLoader.load(getClass().getResource("../views/pharmacie.fxml"));
             Scene s = new Scene(pharmacie, 700, 500);

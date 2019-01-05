@@ -1,5 +1,6 @@
 package classes.utils;
 
+import classes.database.DatabaseConnector;
 import javafx.application.Application;
 import javafx.scene.layout.VBox;
 import javafx.scene.Scene;
@@ -19,6 +20,8 @@ public class Notification extends Application{
     }
     @Override
     public void start(Stage stage){
+        DatabaseConnector db = new DatabaseConnector();
+
        // Media musicfile = new Media("file:///P:/JAVA/JAVAFX/AppGrandPa/GRANDPA/src/ressources/sound/azan1.mp3");
         /* System.out.println("file:///" + getClass()
                 .getResource("./../../ressources/sound/azan1.mp3")

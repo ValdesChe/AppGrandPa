@@ -1,4 +1,4 @@
 package controllers;
 
-public class PharmacieControler {
+public class PharmacieControler extends Controller{
 }

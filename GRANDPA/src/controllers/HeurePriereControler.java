@@ -1,4 +1,4 @@
 package controllers;
 
-public class HeurePriereControler {
+public class HeurePriereControler extends Controller {
 }
