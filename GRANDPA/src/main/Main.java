@@ -1,5 +1,6 @@
 package main;
 
+import classes.prayer.PrayerFetcher;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,16 @@ public class Main extends Application {
         primaryStage.setTitle("REMIND ME");
         primaryStage.setScene(new Scene(root, 700, 500));
         primaryStage.initStyle(StageStyle.UNDECORATED);
+
+        PrayerFetcher prayerFetcher = new PrayerFetcher("yaounde");
+        prayerFetcher.fetchPrayers();
+
+        System.out.println(
+                prayerFetcher.getPrayers().getCountry()+
+                        " Lien Img: "+ prayerFetcher.getPrayers().getMap_image() + "\n" +
+                        " Date: "+ prayerFetcher.getPrayers().getItems().get(0).getDate_for() +  "\n" +
+                        " Isha Time: "+ prayerFetcher.getPrayers().getItems().get(0).getIsha()
+        );
 
 
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
