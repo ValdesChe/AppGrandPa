@@ -17,7 +17,7 @@ public class Controller{
     private Label quitter;
 
     @FXML
-    private Button btnProfil;
+    private Button btnProfil, btnContacts, btnAgenda, btnMessagerie, btnHDP, btnPharmacie;
 
 
     @FXML
@@ -27,16 +27,87 @@ public class Controller{
 
 
 
-    public void showProfilPage(ActionEvent actionEvent) throws IOException {
-        Parent monProfil= FXMLLoader.load(getClass().getResource("../views/monProfil.fxml"));
-        Scene s = new Scene(monProfil, 700, 500);
+    public void showPages(ActionEvent actionEvent) throws IOException {
 
 
-        Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        if (actionEvent.getSource().equals(btnProfil))
+        {
+            Parent monProfil= FXMLLoader.load(getClass().getResource("../views/monProfil.fxml"));
+            Scene s = new Scene(monProfil, 700, 500);
 
-        window.setScene(s);
-        window.show();
+
+            Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+
+            window.setScene(s);
+            window.show();
+        }
+
+        if (actionEvent.getSource().equals(btnContacts))
+        {
+            Parent contacts= FXMLLoader.load(getClass().getResource("../views/contacts.fxml"));
+            Scene s = new Scene(contacts, 700, 500);
+
+
+            Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+
+            window.setScene(s);
+            window.show();
+        }
+
+        if (actionEvent.getSource().equals(btnAgenda))
+        {
+            Parent agenda= FXMLLoader.load(getClass().getResource("../views/agenda.fxml"));
+            Scene s = new Scene(agenda, 700, 500);
+
+
+            Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+
+            window.setScene(s);
+            window.show();
+        }
+
+        if (actionEvent.getSource().equals(btnMessagerie))
+        {
+            Parent messagerie= FXMLLoader.load(getClass().getResource("../views/messagerie.fxml"));
+            Scene s = new Scene(messagerie, 700, 500);
+
+
+            Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+
+            window.setScene(s);
+            window.show();
+        }
+
+        if (actionEvent.getSource().equals(btnHDP))
+        {
+            Parent heurePriere= FXMLLoader.load(getClass().getResource("../views/heurePriere.fxml"));
+            Scene s = new Scene(heurePriere, 700, 500);
+
+
+            Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+
+            window.setScene(s);
+            window.show();
+        }
+
+        if (actionEvent.getSource().equals(btnPharmacie))
+        {
+            Parent pharmacie= FXMLLoader.load(getClass().getResource("../views/pharmacie.fxml"));
+            Scene s = new Scene(pharmacie, 700, 500);
+
+
+            Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+
+            window.setScene(s);
+            window.show();
+        }
+
+
     }
+
+
+
+
 }
 
 
