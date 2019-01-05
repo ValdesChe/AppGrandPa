@@ -12,7 +12,7 @@
 *.iml
 
 ## Directory-based project format:
-/GRANDPA/.idea/
+GRANDPA/.idea/
 
 ## File-based project format:
 *.ipr

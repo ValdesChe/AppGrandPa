@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ContactsController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MessagerieController">
     <children>
         <Pane prefHeight="500.0" prefWidth="232.0" style="-fx-background-color: #000d33;">
             <children>
@@ -15,7 +14,7 @@
                         <Font name="SansSerif Regular" size="24.0" />
                     </font>
                 </Label>
-                <Button fx:id="btnContacts" alignment="TOP_LEFT" layoutX="7.0" layoutY="168.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #000d33; -fx-border-color: #FFFFFF;" text="CONTACTS" textFill="WHITE">
+                <Button fx:id="btnContacts" alignment="TOP_LEFT" layoutX="7.0" layoutY="168.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="CONTACTS">
                     <font>
                         <Font name="Arial Narrow" size="20.0" />
                     </font>
@@ -25,7 +24,7 @@
                         <Font size="21.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnMessagerie" alignment="TOP_LEFT" layoutX="8.0" layoutY="269.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #bcc4d1; -fx-border-color: #FFFFFF;" text="MESSAGERIE">
+                <Button fx:id="btnMessagerie" alignment="TOP_LEFT" layoutX="8.0" layoutY="269.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #000d33; -fx-border-color: #FFFFFF;" text="MESSAGERIE" textFill="WHITE">
                     <font>
                         <Font size="21.0" />
                     </font>
@@ -57,57 +56,29 @@
                         <Font name="System Bold" size="25.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="32.0" layoutY="193.0" prefHeight="46.0" prefWidth="94.0" text="Nom ">
+                <Label layoutX="42.0" layoutY="72.0" prefHeight="36.0" prefWidth="127.0" text="Email">
                     <font>
                         <Font name="Arial Italic" size="25.0" />
                     </font>
                 </Label>
-                <Label layoutX="22.0" layoutY="358.0" prefHeight="36.0" prefWidth="127.0" text="Telephone">
+                <Label layoutX="42.0" layoutY="133.0" prefHeight="36.0" prefWidth="127.0" text="Sujet">
                     <font>
-                        <Font name="Arial Italic" size="18.0" />
+                        <Font size="25.0" />
                     </font>
                 </Label>
-                <Label layoutX="22.0" layoutY="387.0" prefHeight="36.0" prefWidth="127.0" text="Email">
+                <Label layoutX="42.0" layoutY="199.0" prefHeight="36.0" prefWidth="127.0" text="Message">
                     <font>
-                        <Font name="Arial" size="18.0" />
+                        <Font size="25.0" />
                     </font>
                 </Label>
-                <Label layoutX="22.0" layoutY="417.0" prefHeight="36.0" prefWidth="127.0" text="Adresse">
-                    <font>
-                        <Font name="Arial" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="22.0" layoutY="453.0" prefHeight="36.0" prefWidth="127.0" text="Ville">
-                    <font>
-                        <Font name="Arial" size="18.0" />
-                    </font>
-                </Label>
-                <TextField layoutX="190.0" layoutY="363.0" style="-fx-background-color: #DCDCDC;" />
-                <TextField layoutX="190.0" layoutY="332.0" style="-fx-background-color: #DCDCDC;" />
-                <TextField layoutX="190.0" layoutY="395.0" style="-fx-background-color: #DCDCDC;" />
-                <TextField layoutX="190.0" layoutY="427.0" style="-fx-background-color: #DCDCDC;" />
-                <TextField layoutX="190.0" layoutY="459.0" style="-fx-background-color: #DCDCDC;" />
-                <Button layoutX="366.0" layoutY="454.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Ajouter" textFill="WHITE">
+                <TextField layoutX="31.0" layoutY="108.0" prefHeight="25.0" prefWidth="407.0" style="-fx-background-color: #DCDCDC;" />
+                <TextField layoutX="31.0" layoutY="168.0" prefHeight="25.0" prefWidth="407.0" style="-fx-background-color: #DCDCDC;" />
+                <Button layoutX="352.0" layoutY="435.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Envoyer" textFill="WHITE">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </Button>
-            <ListView layoutX="14.0" layoutY="43.0" prefHeight="235.0" prefWidth="441.0" style="-fx-background-color: #DCDCDC;" />
-            <Label layoutX="22.0" layoutY="327.0" prefHeight="36.0" prefWidth="127.0" text="Nom">
-               <font>
-                  <Font name="Arial Italic" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="15.0" layoutY="296.0" prefHeight="27.0" prefWidth="304.0" text="AJOUTER UN NOUVEAU CONTACT" textFill="#000d33" underline="true">
-               <font>
-                  <Font name="System Bold Italic" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="16.0" layoutY="8.0" prefHeight="27.0" prefWidth="304.0" text="LA LISTE DES CONTACTS" textFill="#000d33" underline="true">
-               <font>
-                  <Font name="System Bold Italic" size="18.0" />
-               </font>
-            </Label>
+            <TextArea layoutX="29.0" layoutY="242.0" prefHeight="145.0" prefWidth="407.0" style="-fx-background-color: #DCDCDC;" />
             </children>
         </Pane>
     </children>
