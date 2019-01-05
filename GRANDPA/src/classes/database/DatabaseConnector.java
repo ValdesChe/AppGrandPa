@@ -82,11 +82,11 @@ public class DatabaseConnector {
             }
             else {
                 String query1 = "CREATE TABLE " + TableName + "("
-                        + "id_event integer primary key not null,\n"
+                        + "id_event integer primary key not null AUTO_INCREMENT,\n"
                         + "title VARCHAR(100) not null ,\n"
                         + "description VARCHAR(255) ,\n"
                         + "dateEvent date not null,\n"
-                        + "heureEvent VARCHAR(4) not null\n"
+                        + "heureEvent VARCHAR(10) not null\n"
                         + ")";
                 stmt.execute(query1);
             }
@@ -115,7 +115,7 @@ public class DatabaseConnector {
             }
             else {
                 String query1 = "CREATE TABLE " + TableName + "("
-                        + "id_contact integer primary key not null,\n"
+                        + "id_contact integer primary key not null auto_increment,\n"
                         + "nom varchar(30) not null,\n"
                         + "prenom varchar(30),\n"
                         + "tel  varchar(30),\n"
@@ -151,12 +151,12 @@ public class DatabaseConnector {
             }
             else {
                 String query1 = "CREATE TABLE " + TableName + "("
-                        + "id_medicament integer primary key not null,\n"
+                        + "id_medicament integer primary key not null AUTO_INCREMENT,\n"
                         + "intitule varchar(30) not null,\n"
                         + "quantite integer , \n"
                         // dose  = dose totale par jour
-                        + "dose  varchar(30),\n"
-                        + "nbr_foirs int\n"
+                        + "dose  NUMBER,\n"
+                        + "nbr_fois int\n"
                         + ")";
                 stmt.execute(query1);
             }
@@ -194,6 +194,23 @@ public class DatabaseConnector {
 
 
     //***************************************************************************************************************************************************************
+
+    //*******************************************
+    //Function that executes an insertion, deletion, or update query
+    public boolean executeAction(String query2) {
+        try {
+            stmt = conn.createStatement();
+            stmt.execute(query2);
+            return true;
+        }
+        catch (SQLException ex) {
+            System.out.println("Exception at executeQuery:dataHandler  --> ERROR: " + ex.getLocalizedMessage());
+            return false;
+        }
+        finally {
+        }
+    }
+
     //*****************************************************************************************************************************
     //Function that executes a SELECT query and returns the requested values/data from the database
     public ResultSet executeQuery(String query) {
