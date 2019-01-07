@@ -45,7 +45,7 @@
                 </Button>
                 <Button fx:id="btnPharmacie" alignment="TOP_LEFT" layoutX="7.0" layoutY="371.0" mnemonicParsing="false" onAction="#showPages" prefHeight="45.0" prefWidth="218.0" style="-fx-background-color: #000d33; -fx-border-color: #FFFFFF;" text="PHARMACIE" textFill="WHITE">
                     <font>
-                        <Font name="System Bold" size="21.0" />
+                        <Font name="Arial" size="18.0" />
                     </font>
                 </Button>
             </children>
@@ -57,20 +57,64 @@
                         <Font name="System Bold" size="25.0" />
                     </font>
                 </Label>
-                <Label layoutX="96.0" layoutY="23.0" prefHeight="36.0" prefWidth="277.0" text="Liste des medicaments">
-                    <font>
-                        <Font name="Arial Italic" size="25.0" />
-                    </font>
-                </Label>
-            <TableView layoutX="13.0" layoutY="66.0" prefHeight="198.0" prefWidth="443.0">
+            <TableView layoutX="12.0" layoutY="49.0" prefHeight="198.0" prefWidth="443.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
+                <TableColumn minWidth="0.0" prefWidth="0.0" text="C1" />
+                <TableColumn prefWidth="181.0" text="Nom" />
+                  <TableColumn prefWidth="111.0" text="Quantite" />
+                  <TableColumn prefWidth="78.0" text="Dose" />
+                  <TableColumn prefWidth="72.0" text="Nbr de fois" />
               </columns>
             </TableView>
+            <Button layoutX="251.0" layoutY="257.0" mnemonicParsing="false" onAction="#modifierContact" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="350.0" layoutY="257.0" mnemonicParsing="false" onAction="#supprimerContact" prefHeight="27.0" prefWidth="97.0" style="-fx-background-color: #000d33;" text="Supprimer" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="13.0" layoutY="292.0" prefHeight="27.0" prefWidth="372.0" text="AJOUTER OU MODIFIER UN MEDICAMENT" textFill="#000d33" underline="true">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="324.0" prefHeight="36.0" prefWidth="127.0" text="Nom">
+               <font>
+                  <Font name="Arial Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="355.0" prefHeight="36.0" prefWidth="127.0" text="Qauntite">
+               <font>
+                  <Font name="Arial Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nomTfd2" layoutX="151.0" layoutY="428.0" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #DCDCDC;" />
+            <TextField fx:id="nomTfd1" layoutX="151.0" layoutY="394.0" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #DCDCDC;" />
+            <TextField fx:id="nomTfd" layoutX="151.0" layoutY="363.0" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #DCDCDC;" />
+            <TextField fx:id="nomTfd3" layoutX="151.0" layoutY="332.0" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #DCDCDC;" />
+            <Label layoutX="24.0" layoutY="388.0" prefHeight="36.0" prefWidth="127.0" text="Dose">
+               <font>
+                  <Font name="Arial Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="423.0" prefHeight="36.0" prefWidth="119.0" text="Nbr de fois/j">
+               <font>
+                  <Font name="Arial Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="16.0" prefHeight="27.0" prefWidth="372.0" text="LISTE DES MEDICAMENTS" textFill="#000d33" underline="true">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="addBtn" layoutX="369.0" layoutY="461.0" mnemonicParsing="false" onAction="#addContact" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Ajouter" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
     </children>
