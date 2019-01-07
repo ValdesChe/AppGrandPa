@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<AnchorPane fx:id="rootPane" prefHeight="249.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.addevent.AddEventController">
+   <children>
+      <HBox id="header" fx:id="header" prefHeight="35.0" prefWidth="340.0" stylesheets="@../../ressources/style/materialButtonStyle.css">
+         <children>
+            <Label fx:id="topLabel" prefHeight="25.0" prefWidth="313.0" text="Add New Event">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../ressources/icons/drag_icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label onMouseClicked="#exit" prefHeight="37.0" prefWidth="39.0">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../ressources/icons/exit_icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutX="10.0" layoutY="57.0" prefHeight="140.0" prefWidth="320.0" spacing="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="57.0">
+         <children>
+            <JFXTextField fx:id="subject" focusColor="#4d4d4d" labelFloat="true" prefHeight="40.0" prefWidth="337.0" promptText="Subject">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXComboBox fx:id="termSelect" focusColor="#4d4d4d" layoutX="10.0" layoutY="102.0" prefHeight="25.0" prefWidth="166.0" promptText="Term" />
+            <JFXDatePicker fx:id="date" promptText="Date of Event" />
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <HBox layoutY="181.0" prefHeight="41.0" prefWidth="340.0" stylesheets="@../../ressources/style/materialButtonStyle.css" AnchorPane.bottomAnchor="0.0">
+         <children>
+            <JFXButton fx:id="saveButton" onMouseClicked="#save" prefHeight="40.0" prefWidth="200.0" text="Save">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="cancelButton" onMouseClicked="#cancel" prefHeight="40.0" prefWidth="200.0" text="Cancel">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

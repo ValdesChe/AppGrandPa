@@ -1,18 +1,11 @@
 ----------------------------------------------------------------
-<<<<<<< HEAD
-Sat Jan 05 22:43:55 CET 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0168-1ff8-f42c-000004980dd8 
-on database directory C:\Users\ALI\Desktop\AppGrandPa\GRANDPA\grandPaDatabase with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
-Loaded from file:/C:/Users/ALI/Desktop/AppGrandPa/GRANDPA/lib/derby.jar
-=======
-Sat Jan 05 06:15:17 EET 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0168-1c38-e491-0000061a17f8 
+Mon Jan 07 14:04:33 EET 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0168-2833-3a29-0000056f3d20 
 on database directory P:\JAVA\JAVAFX\AppGrandPa\GRANDPA\grandPaDatabase with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/P:/JAVA/JAVAFX/AppGrandPa/GRANDPA/lib/derby.jar
->>>>>>> ddbb9199d6671971fb1d892d506523452787825c
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_191-b12
-user.dir=C:\Users\ALI\Desktop\AppGrandPa\GRANDPA
+java.runtime.version=1.8.0_131-b11
+user.dir=P:\JAVA\JAVAFX\AppGrandPa\GRANDPA
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AgendaController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@../ressources/style/mainStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AgendaController">
     <children>
         <Pane prefHeight="500.0" prefWidth="232.0" style="-fx-background-color: #000d33;">
             <children>
@@ -52,16 +55,84 @@
         </Pane>
         <Pane layoutX="232.0" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: #bcc4d1;">
             <children>
-                <Label fx:id="quitter" layoutX="447.0" layoutY="-7.0" onMousePressed="#handleButtonAction" text="x" textFill="#fc0909">
-                    <font>
-                        <Font name="System Bold" size="25.0" />
-                    </font>
+
+                <Label fx:id="quitter" layoutX="429.0" layoutY="2.0" onMousePressed="#handleButtonAction" prefHeight="37.0" prefWidth="39.0">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../ressources/icons/exit_icon.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
                 </Label>
-                <Label alignment="CENTER" layoutX="151.0" layoutY="203.0" prefHeight="47.0" prefWidth="154.0" text="Agenda">
+                <Label alignment="CENTER" layoutX="130.0" layoutY="-1.0" prefHeight="47.0" prefWidth="154.0" text="Agenda">
                     <font>
                         <Font name="Arial Italic" size="25.0" />
                     </font>
                 </Label>
+            <AnchorPane layoutX="6.0" layoutY="63.0" prefHeight="437.0" prefWidth="457.0">
+               <children>
+                  <VBox fx:id="centerArea" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="450.0">
+                     <children>
+                        <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="422.0" prefWidth="450.0" stylesheets="@../ressources/style/scrollbarStyle.css" vbarPolicy="ALWAYS">
+                           <content>
+                              <VBox prefHeight="432.0" prefWidth="469.0">
+                                 <children>
+                                    <HBox fx:id="monthSwitcher" prefHeight="40.0" prefWidth="438.0">
+                                       <children>
+                                          <Label fx:id="prevMonth" layoutX="19.0" layoutY="2.0" onMouseClicked="#prevMonth" prefHeight="37.0" prefWidth="39.0">
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../ressources/icons/previous.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Label>
+                                          <Label fx:id="monthLabel" contentDisplay="CENTER" layoutX="172.0" layoutY="7.0" text="Janvier 2019" textAlignment="CENTER" translateX="120.0" translateY="5.0">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="nextMonth" alignment="TOP_CENTER" layoutX="399.0" onMouseClicked="#nextMonth" prefHeight="37.0" prefWidth="39.0" translateX="250.0" translateY="5.0">
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../ressources/icons/next.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="weekdayHeader" minHeight="-Infinity" prefHeight="47.0" prefWidth="438.0" />
+                                    <GridPane fx:id="calendarGrid" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="261.0" prefWidth="432.0" styleClass="calendar_pane">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="43.0" prefHeight="44.0" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="44.0" prefHeight="44.0" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="9.0" prefHeight="47.0" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="40.0" prefHeight="50.0" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="4.0" prefHeight="51.0" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="40.0" prefHeight="41.0" vgrow="ALWAYS" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
             </children>
         </Pane>
     </children>
