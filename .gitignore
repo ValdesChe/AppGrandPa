@@ -25,6 +25,8 @@ GRANDPA/.idea/
 
 /GRANDPA/grandPaDatabase/
 
+/GRANDPA/derby.log
+
 # mpeltonen/sbt-idea plugin
 /GRANDPA/.idea_modules/
 
