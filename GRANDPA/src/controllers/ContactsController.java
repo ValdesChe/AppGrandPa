@@ -142,11 +142,7 @@ public class ContactsController extends Controller implements Initializable {
 
 
     public void modifierContact(ActionEvent actionEvent) {
-        ObservableList<Contact> allContacts;
-        Contact contactSelected;
-
-        allContacts = contactsTable.getItems();
-        contactSelected = contactsTable.getSelectionModel().getSelectedItem();
+        Contact contactSelected = contactsTable.getSelectionModel().getSelectedItem();
 
         nomTfd.setText(contactSelected.getNom());
         prenomTfd.setText(contactSelected.getPrenom());
@@ -221,7 +217,7 @@ public class ContactsController extends Controller implements Initializable {
                     "', email='" + emailTfd.getText() +
                     "', ville='" + villeTfd.getText() + "' WHERE id_contact=" + id);
 
-            Alert alert = new Alert(Alert.AlertType.WARNING, "");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "");
             alert.setHeaderText("Contact modifier avec succès, veuiller relancer la fénètre!!");
             alert.setTitle("Information");
             alert.show();

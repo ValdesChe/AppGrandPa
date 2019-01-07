@@ -69,17 +69,17 @@
                   <Font name="Arial Italic" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="42.0" layoutY="239.0" prefHeight="36.0" prefWidth="127.0" text="Telephone">
+            <Label layoutX="42.0" layoutY="239.0" prefHeight="36.0" prefWidth="127.0" text="Prénom">
                <font>
                   <Font name="Arial Italic" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="42.0" layoutY="284.0" prefHeight="36.0" prefWidth="127.0" text="Email">
+            <Label layoutX="42.0" layoutY="284.0" prefHeight="36.0" prefWidth="127.0" text="Téléphone">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label layoutX="42.0" layoutY="327.0" prefHeight="36.0" prefWidth="127.0" text="Adresse">
+            <Label layoutX="42.0" layoutY="327.0" prefHeight="36.0" prefWidth="127.0" text="Email">
                <font>
                   <Font size="25.0" />
                </font>
@@ -89,12 +89,12 @@
                   <Font name="Arial" size="25.0" />
                </font>
             </Label>
-            <TextField layoutX="190.0" layoutY="204.0" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: #DCDCDC;" />
-            <TextField layoutX="190.0" layoutY="245.0" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: #DCDCDC;" />
-            <TextField layoutX="190.0" layoutY="290.0" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: #DCDCDC;" />
-            <TextField layoutX="190.0" layoutY="338.0" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: #DCDCDC;" />
-            <TextField layoutX="190.0" layoutY="380.0" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: #DCDCDC;" />
-            <Button layoutX="352.0" layoutY="435.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Modifier" textFill="WHITE">
+            <TextField fx:id="nomTfd" layoutX="190.0" layoutY="204.0" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: #DCDCDC;" />
+            <TextField fx:id="prenomTfd" layoutX="190.0" layoutY="245.0" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: #DCDCDC;" />
+            <TextField fx:id="phoneTfd" layoutX="190.0" layoutY="290.0" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: #DCDCDC;" />
+            <TextField fx:id="emailTfd" layoutX="190.0" layoutY="338.0" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: #DCDCDC;" />
+            <TextField fx:id="villeTfd" layoutX="190.0" layoutY="380.0" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: #DCDCDC;" />
+            <Button layoutX="352.0" layoutY="435.0" mnemonicParsing="false" onAction="#updateProfile" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Modifier" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
