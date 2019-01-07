@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 public class HeurePriereControler extends Controller implements Initializable {
 
     @FXML
-    Label fajrLbl, dohrLbl, asrLbl, mghrebLbl, ishaeLbl;
+    Label fajrLbl, dohrLbl, asrLbl, mghrebLbl, ishaeLbl, villeLbl;
 
     PrayerFetcher prayerFetcher = new PrayerFetcher("roma");
 
@@ -33,6 +33,7 @@ public class HeurePriereControler extends Controller implements Initializable {
 
         System.out.println(gregorianCalendar.getTimeZone());
 
+        villeLbl.setText(prayers.getCity());
         fajrLbl.setText(prayers.getItems().get(0).getFajr());
         dohrLbl.setText(prayers.getItems().get(0).getDhuhr());
         asrLbl.setText(prayers.getItems().get(0).getAsr());
