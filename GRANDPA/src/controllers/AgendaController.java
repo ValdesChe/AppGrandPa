@@ -3,6 +3,7 @@ package controllers;
 
 import classes.database.DatabaseConnector;
 import classes.utils.Model;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import controllers.addevent.AddEventController;
 import controllers.editevent.EditEventController;
 import javafx.event.ActionEvent;
@@ -40,8 +41,6 @@ public class AgendaController extends Controller implements Initializable{
 
     DatabaseConnector databaseHandler;
 
-    @FXML
-    private HBox monthSwitcher;
 
     @FXML
     private Label prevMonth;
@@ -54,6 +53,8 @@ public class AgendaController extends Controller implements Initializable{
 
     @FXML
     private HBox weekdayHeader;
+
+
     @FXML
     private GridPane calendarGrid;
 
@@ -79,8 +80,12 @@ public class AgendaController extends Controller implements Initializable{
 
             // Store event day and month in data singleton
             Model.getInstance().event_day = Integer.parseInt(lbl.getText());
-            //Model.getInstance().event_month = Model.getInstance().getMonthIndex( monthSelect.getSelectionModel().getSelectedItem());
-            //Model.getInstance().event_year = Integer.parseInt(selectedYear.getValue());
+
+            String [] parts = monthLabel.getText().split(" ");
+
+
+            Model.getInstance().event_month = Model.getInstance().getMonthIndex( parts[0]);
+            Model.getInstance().event_year = Integer.parseInt(parts[1]);
 
             // Open add event view
             try {
@@ -277,9 +282,6 @@ public class AgendaController extends Controller implements Initializable{
         }
     }
 
-
-
-
     private void loadCalendarLabels(){
 
         // Get the current VIEW
@@ -328,7 +330,13 @@ public class AgendaController extends Controller implements Initializable{
                     Label lbl = new Label(Integer.toString(lblCount));
                     lbl.setPadding(new Insets(5));
                     lbl.setStyle("-fx-text-fill:darkslategray");
-
+                    if (lblCount ==  Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+                            && Model.getInstance().viewing_month == Calendar.getInstance().get(Calendar.MONTH)
+                            && Model.getInstance().viewing_year == Calendar.getInstance().get(Calendar.YEAR)
+                            ){
+                        day.setStyle("-fx-background-color: aqua");
+                        lbl.setStyle("-fx-text-fill: #333333; -fx-font-weight: 600");
+                    }
                     day.getChildren().add(lbl);
                 }
 
@@ -336,9 +344,6 @@ public class AgendaController extends Controller implements Initializable{
             }
         }
     }
-
-
-
 
     public void initializeCalendarGrid(){
 
@@ -404,10 +409,28 @@ public class AgendaController extends Controller implements Initializable{
 
     public void prevMonth(){
 
+        if (Model.getInstance().viewing_month == 0){
+            Model.getInstance().viewing_month = 11;
+            Model.getInstance().viewing_year--;
+        }
+        else {
+            Model.getInstance().viewing_month--;
+        }
+
+        monthLabel.setText( Model.getInstance().getMonthName(Model.getInstance().viewing_month) + " " + Integer.toString(Model.getInstance().viewing_year));
+        loadCalendarLabels();
     }
 
     public void nextMonth(){
-
+        if (Model.getInstance().viewing_month == 11){
+            Model.getInstance().viewing_month = 0;
+            Model.getInstance().viewing_year++;
+        }
+        else {
+            Model.getInstance().viewing_month++;
+        }
+        monthLabel.setText( Model.getInstance().getMonthName(Model.getInstance().viewing_month) + " " + Integer.toString(Model.getInstance().viewing_year));
+        loadCalendarLabels();
     }
 
 
@@ -415,6 +438,7 @@ public class AgendaController extends Controller implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         Model.getInstance().viewing_year =  Calendar.getInstance().get(Calendar.YEAR);
         Model.getInstance().viewing_month =  Calendar.getInstance().get(Calendar.MONTH);
+        monthLabel.setText( Model.getInstance().getMonthName(Model.getInstance().viewing_month) + " " + Integer.toString(Model.getInstance().viewing_year));
         initializeCalendarGrid();
         loadCalendarLabels();
         initializeCalendarWeekdayHeader();

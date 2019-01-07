@@ -44,32 +44,67 @@ public class Model {
     public int getMonthIndex(String month){
         switch (month)
         {    
-            case "January":
+            case "Janvier":
                 return 0;
-            case "February":
+            case "Fevrier":
                 return 1;
-            case "March":
+            case "Mars":
                 return 2;
-            case "April":
+            case "Avril":
                 return 3;
-            case "May":
+            case "Mai":
                 return 4;
-            case "June":
+            case "Juin":
                 return 5;
-            case "July":
+            case "Juillet":
                 return 6;
-            case "August":
+            case "Aout":
                 return 7;
-            case "September":
+            case "Septembre":
                 return 8;
-            case "October":
+            case "Octobre":
                 return 9;
-            case "November":
+            case "Novembre":
                 return 10;
-            case "December":
+            case "Decembre":
                 return 11;
         }
         return 0;
     }
+
+    //Function that returns a month Index based on the given month name
+    public String getMonthName(int monthIndex){
+        switch (monthIndex)
+        {
+            case 0:
+                return "Janvier";
+            case 1:
+                return "Février";
+            case 2:
+                return "Mars";
+            case 3:
+                return "Aril";
+            case 4:
+                return "Mai";
+            case 5:
+                return "Juin";
+            case 6:
+                return "Juillet";
+            case 7:
+                return "Aout";
+            case 8:
+                return "Septembre";
+            case 9:
+                return "Octobre";
+            case 10:
+                return "Novembre";
+            case 11:
+                return "Decembre";
+        }
+        return "Janvier";
+    }
+
+
+
     
 }
