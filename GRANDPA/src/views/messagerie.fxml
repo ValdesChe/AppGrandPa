@@ -71,14 +71,14 @@
                         <Font size="25.0" />
                     </font>
                 </Label>
-                <TextField layoutX="31.0" layoutY="108.0" prefHeight="25.0" prefWidth="407.0" style="-fx-background-color: #DCDCDC;" />
-                <TextField layoutX="31.0" layoutY="168.0" prefHeight="25.0" prefWidth="407.0" style="-fx-background-color: #DCDCDC;" />
-                <Button layoutX="352.0" layoutY="435.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Envoyer" textFill="WHITE">
+                <TextField layoutX="31.0" layoutY="108.0" prefHeight="25.0" fx:id="emailField" prefWidth="407.0" style="-fx-background-color: #DCDCDC;" />
+                <TextField layoutX="31.0" layoutY="168.0" prefHeight="25.0"  fx:id="subjectField" prefWidth="407.0" style="-fx-background-color: #DCDCDC;" />
+                <Button layoutX="352.0"  fx:id="btnSubmitMail" onMouseClicked="#btnSubmitMailer" layoutY="435.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Envoyer" textFill="WHITE">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </Button>
-            <TextArea layoutX="29.0" layoutY="242.0" prefHeight="145.0" prefWidth="407.0" style="-fx-background-color: #DCDCDC;" />
+            <TextArea layoutX="29.0" layoutY="242.0" prefHeight="145.0" fx:id="bodyField" prefWidth="407.0" style="-fx-background-color: #DCDCDC;" />
             </children>
         </Pane>
     </children>

@@ -1,0 +1,43 @@
+
+/* Material Design Button Styles from Gui Garage! */
+
+* {
+    -fx-basic-color: #26A69A;  /* Used this same color for calendar headers */
+    -fx-darker-color: derive(-fx-basic-color, -40% );
+    -fx-lighter-color: derive(-fx-basic-color, 80% );
+    -fx-lightest-color: derive(-fx-basic-color, 95% );
+    -fx-dark-text-color: rgb(47.0, 52.0, 57.0);
+    -fx-text-color: rgb(67.0, 72.0, 77.0);
+    -fx-light-gray-color: rgb(200.0, 200.0, 200.0);
+    -fx-lightest-gray-color: rgb(230.0, 230.0, 230.0);
+}
+
+#header{
+    -fx-background-color: -fx-lightest-gray-color;
+}
+
+#header .text{
+    -fx-font-size: 15px;
+}
+
+.text {
+    -fx-font-family: 'Arial';
+}
+
+.button {
+    -fx-background-color: -fx-basic-color;
+    -fx-background-radius: 3px;
+    -fx-font-size: 14px;
+}
+
+.button .text{
+    -fx-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: -fx-dark-text-color;
+}
+
+.button:hover .text{
+    -fx-fill: white;
+}

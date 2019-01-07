@@ -1,0 +1,114 @@
+
+.event-label {
+    -fx-font: 13px "System";
+    -fx-background-color: white;
+    -fx-border-width:1.5;
+    -fx-padding: 2px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-border-color: #333;
+    -fx-padding: 2px;
+    -fx-text-fill: black;
+    -fx-background-insets: 2px;
+}
+
+.month-label { 
+    -fx-font: bold 25px "System";
+    -fx-text-fill: #555;
+}
+
+.label {
+    -fx-text-fill: #666;
+}
+
+.weekday-header {
+    -fx-font: bold 17px "System";
+    -fx-font-style: normal;
+    -fx-background-color:  #26A69A;
+    -fx-border-style: solid;
+    -fx-border-insets: 1;
+    -fx-border-width: .2;
+    -fx-border-color: white;
+}
+
+.weekday-header .label{
+    -fx-text-fill: white;
+}
+
+.calendar_pane {
+    -fx-background-color:  white;
+    -fx-border-style: dashed;
+    -fx-border-width: .5;
+    -fx-border-color: gray;
+}
+
+.menu-bar {
+     -fx-background-color:#ecedf7;
+}
+
+.menu:hover {
+    -fx-background-color:#ecedf7;
+}
+
+.menu .label {
+    -fx-text-fill: black;
+}
+
+.menu-item {
+    -fx-background-color:white;
+}
+
+.menu-item:hover {
+    -fx-background-color:#ecedf7;
+}
+
+.menu:showing {
+    -fx-background-color:#ecedf7;
+}
+
+
+
+.list-cell {
+    -fx-alignment: center;
+    -fx-font: 17px "Lucida Console";
+    -fx-text-fill: black;
+}
+
+.list-cell:selected {
+    -fx-background-color:#ecedf7;
+}
+
+.list-cell:selected .label{
+    -fx-text-fill: black;
+}
+
+.list-view {
+ -fx-background-insets: 0;
+ -fx-background-color:#ecedf7;
+}
+
+/* Tab pane styling */
+-jfx-tab-pane {
+    -fx-background-color: #555;
+}
+.jfx-tab-pane .tab
+{
+    -fx-background-color: #555;
+}
+.jfx-tab-pane .tab:selected
+{
+    -fx-background-color: #555;
+    -fx-text-fill: white;
+}
+
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color: #555;
+}
+
+.jfx-tab-pane .tab-selected-line {
+    -fx-stroke: white;
+    -fx-stroke-width: 3pt;
+}
+.jfx-tab-pane .headers-region {
+    -fx-background-color: #555;
+}

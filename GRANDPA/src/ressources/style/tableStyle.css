@@ -1,0 +1,93 @@
+/* Material Design Button Styles from Gui Garage */
+
+* {
+    -fx-basic-color: #26A69A;
+    -fx-darker-color: derive(-fx-basic-color, -40% );
+    -fx-lighter-color: derive(-fx-basic-color, 80% );
+    -fx-lightest-color: derive(-fx-basic-color, 95% );
+    -fx-dark-text-color: rgb(47.0, 52.0, 57.0);
+    -fx-text-color: rgb(67.0, 72.0, 77.0);
+    -fx-light-gray-color: rgb(200.0, 200.0, 200.0);
+    -fx-lightest-gray-color: rgb(230.0, 230.0, 230.0);
+}
+
+.text {
+    -fx-font-family: 'Arial';
+}
+
+.icon-label .text {
+    -fx-font-family: FontAwesome !important;
+}
+
+.table-view, .table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color:silver;
+    -fx-border-width: 0 0 2 0;
+    -fx-prompt-text-fill: -fx-lightest-color;
+    -fx-highlight-fill: -fx-lightest-color;
+    -fx-font-size: 13px;
+    -fx-text-fill: -fx-text-color;
+}
+
+.table-view {
+    -fx-table-header-border-color: transparent;
+    /*-fx-table-cell-border-color: transparent;*/
+    /*-fx-background-color: transparent;*/
+}
+
+.workbench-view > .table-view {
+    -fx-padding: 12px;
+}
+
+.table-view .show-hide-columns-button {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label, .table-view .filler .label, .table-view .column-drag-header .label {
+    -fx-alignment: baseline-left;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-row-cell {
+   /* -fx-background-color: transparent;*/
+}
+
+.table-row-cell:hover {
+    -fx-background-color: -fx-lightest-gray-color;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -fx-light-gray-color;
+}
+
+.table-row-cell:selected:hover {
+    -fx-background-color: -fx-light-gray-color;
+}
+
+.table-row-cell:hover:focused {
+    -fx-background-color: -fx-lightest-gray-color;
+}
+
+.table-row-cell:selected:focused {
+    -fx-background-color: -fx-lighter-color;
+}
+
+.table-row-cell:selected:hover:focused {
+    -fx-background-color: -fx-lighter-color;
+}
+
+.table-cell, .table-cell:even, .table-cell:odd {
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-font-size: 13px;
+    -fx-text-fill: -fx-text-color;
+    -fx-padding: 8px 4px 8px 4px;
+    -fx-wrap-text: true;
+}
+
+.media-table-cell {
+    -fx-padding: 8px 8px 8px 8px !important;
+}

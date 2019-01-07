@@ -1,6 +1,5 @@
 package main;
 
-import classes.prayer.PrayerFetcher;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
