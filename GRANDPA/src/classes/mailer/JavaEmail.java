@@ -1,6 +1,5 @@
 package classes.mailer;
 
-import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -8,6 +7,7 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 public class JavaEmail {
 
@@ -15,15 +15,19 @@ public class JavaEmail {
     Session mailSession;
     MimeMessage emailMessage;
 
+
+/*
     public static void main(String args[]) throws AddressException,
             MessagingException {
 
         JavaEmail javaEmail = new JavaEmail();
-
+        String [] table = {"fatimazahranaor@gmail.com","valdesche03@gmail.com"};
         javaEmail.setMailServerProperties();
-        javaEmail.createEmailMessage();
+        javaEmail.createEmailMessage(table, "réponse au message", "Hello comment allez-vous ?");
         javaEmail.sendEmail();
     }
+    */
+
 
     public void setMailServerProperties() {
 
@@ -36,11 +40,11 @@ public class JavaEmail {
 
     }
 
-    public void createEmailMessage() throws AddressException,
+    public void createEmailMessage(String toEmail[], String subject, String body) throws AddressException,
             MessagingException {
-        String[] toEmails = {"fatimazahranaor@gmail.com"};
-        String emailSubject = "Java Email";
-        String emailBody = "This is an email sent by JavaMail api.";
+        String[] toEmails = toEmail;
+        String emailSubject = subject;
+        String emailBody = body;
 
         mailSession = Session.getDefaultInstance(emailProperties, null);
         emailMessage = new MimeMessage(mailSession);
@@ -67,5 +71,6 @@ public class JavaEmail {
         System.out.println("Email sent successfully.");
     }
 }
+
 
 
