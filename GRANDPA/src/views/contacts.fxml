@@ -90,7 +90,7 @@
                 <TextField fx:id="phoneTfd" layoutX="121.0" layoutY="395.0" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #DCDCDC;" />
                 <TextField fx:id="emailTfd" layoutX="121.0" layoutY="427.0" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #DCDCDC;" />
                 <TextField fx:id="villeTfd" layoutX="121.0" layoutY="459.0" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #DCDCDC;" />
-                <Button layoutX="366.0" layoutY="454.0" mnemonicParsing="false" onAction="#addContact" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Ajouter" textFill="WHITE">
+                <Button fx:id="addBtn" layoutX="366.0" layoutY="454.0" mnemonicParsing="false" onAction="#addContact" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Ajouter" textFill="WHITE">
                     <font>
                         <Font size="15.0" />
                     </font>
@@ -113,7 +113,7 @@
                   <Font name="Arial Italic" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="15.0" layoutY="296.0" prefHeight="27.0" prefWidth="304.0" text="AJOUTER UN NOUVEAU CONTACT" textFill="#000d33" underline="true">
+            <Label layoutX="15.0" layoutY="296.0" prefHeight="27.0" prefWidth="333.0" text="AJOUTER OU MODIFIER UN CONTACT" textFill="#000d33" underline="true">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>
@@ -123,7 +123,7 @@
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <TableView fx:id="contactsTable" layoutX="6.0" layoutY="41.0" prefHeight="229.0" prefWidth="448.0">
+            <TableView fx:id="contactsTable" layoutX="6.0" layoutY="41.0" prefHeight="212.0" prefWidth="448.0">
               <columns>
                 <!--<TableColumn fx:id="nomClmn" prefWidth="75.0" text="NOM" />
                 <TableColumn fx:id="prenomClmn" prefWidth="86.0" text="PRENOM" />
@@ -161,7 +161,22 @@
 
               </columns>
             </TableView>
-            <Separator layoutY="279.0" prefHeight="5.0" prefWidth="468.0" />
+            <Separator layoutY="292.0" prefHeight="5.0" prefWidth="468.0" />
+            <Button layoutX="257.0" layoutY="259.0" mnemonicParsing="false" onAction="#modifierContact" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #000d33;" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="356.0" layoutY="259.0" mnemonicParsing="false" onAction="#supprimerContact" prefHeight="27.0" prefWidth="97.0" style="-fx-background-color: #000d33;" text="Supprimer" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="enregistrerBtn" layoutX="364.0" layoutY="454.0" mnemonicParsing="false" onAction="#enregistrerModification" prefHeight="27.0" prefWidth="93.0" style="-fx-background-color: #000d33;" text="Enregistrer" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
     </children>
