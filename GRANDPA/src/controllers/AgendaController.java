@@ -83,8 +83,7 @@ public class AgendaController extends Controller implements Initializable{
 
             String [] parts = monthLabel.getText().split(" ");
 
-
-            Model.getInstance().event_month = Model.getInstance().getMonthIndex( parts[0]);
+            Model.getInstance().event_month = Model.getInstance().getMonthIndex(parts[0]);
             Model.getInstance().event_year = Integer.parseInt(parts[1]);
 
             // Open add event view
@@ -110,15 +109,15 @@ public class AgendaController extends Controller implements Initializable{
         }
     }
 
-    private void editEvent(VBox day, String descript, String termID) {
+    private void editEvent(VBox day, String descript, int termID) {
 
         // Store event fields in data singleton
         Label dayLbl = (Label)day.getChildren().get(0);
         Model.getInstance().event_day = Integer.parseInt(dayLbl.getText());
-        Model.getInstance().event_month = 1;
-        Model.getInstance().event_year = 2019;
+        Model.getInstance().event_month = Model.getInstance().viewing_month;
+        Model.getInstance().event_year = Model.getInstance().viewing_year;
         Model.getInstance().event_subject = descript;
-        Model.getInstance().event_term_id = Integer.parseInt(termID);
+        Model.getInstance().event_id = termID;
 
         // When user clicks on any date in the calendar, event editor window opens
         try {
@@ -144,9 +143,6 @@ public class AgendaController extends Controller implements Initializable{
     }
 
     public void calendarGenerate(){
-
-        // Load year selection
-        monthLabel.setText(Integer.toString(Model.getInstance().calendar_start));
 
 
         // Update the VIEWING YEAR
@@ -175,22 +171,26 @@ public class AgendaController extends Controller implements Initializable{
 
         loadCalendarLabels();
 
+        populateMonthWithEvents();
+
     }
 
 
     // Remplissage des events dans calendar
     private void populateMonthWithEvents(){
 
+        databaseHandler = new DatabaseConnector();
         // Get viewing calendar
-        String calendarName = Model.getInstance().calendar_name;
-        String currentMonth = monthLabel.getText();
+        String currentMonth = monthLabel.getText().split(" ")[0];
 
         int currentMonthIndex = Model.getInstance().getMonthIndex(currentMonth) + 1;
-        // int currentYear = Integer.parseInt(selectedYear.getValue());
-        int currentYear = 2019;
+        int currentYear = Integer.parseInt(monthLabel.getText().split(" ")[1]);
+        // int currentYear = 2019;
+        // System.out.println(currentYear);
 
-        // Query to get ALL Events from the selected calendar!!
-        String getMonthEventsQuery = "SELECT * From evenement ";
+        // Query to get ALL Events from the selected calendar !!
+        // String getMonthEventsQuery = "SELECT * from evenement WHERE month(dateEvent) = "+ Integer.toString(Model.getInstance().viewing_month+1);
+        String getMonthEventsQuery = "SELECT * from evenement ";
 
         // Store the results here
         ResultSet result = databaseHandler.executeQuery(getMonthEventsQuery);
@@ -199,21 +199,26 @@ public class AgendaController extends Controller implements Initializable{
             while(result.next()){
 
                 // Get date for the event
-                Date eventDate = result.getDate("date_event");
-                String eventDescript = result.getString("desc_event");
-                String eventTitle = result.getString("desc_event");
+                Date eventDate = result.getDate("dateEvent");
+                String eventDescript = result.getString("description");
+                String eventTitle = result.getString("title");
+                String EventParts = result.getString("heureEvent");
                 int eventID = result.getInt("id_event");
-
                 // Check for year we have selected
+
+                System.out.println(eventDate.toString()  );
+                System.out.println(eventTitle + " - Mois : " + eventDate.toLocalDate().getMonth().name());
+                System.out.println("Model/- EvDate month : " +  Model.getInstance().viewing_month + " -- " + eventDate.toLocalDate().getMonthValue() );
                 if (currentYear == eventDate.toLocalDate().getYear()){
+                    System.out.println("-- Anee correct");
                     // Check for the month we already have selected (we are viewing)
-                    if (currentMonthIndex == eventDate.toLocalDate().getMonthValue()){
+                    if (eventDate.toLocalDate().getMonthValue() == Model.getInstance().viewing_month +1  /*&& currentMonthIndex == eventDate.toLocalDate().getMonthValue()*/ ){
 
                         // Get day for the month
                         int day = eventDate.toLocalDate().getDayOfMonth();
 
                         // Display decription of the event given it's day
-                        showDate(day, eventDescript, eventID);
+                        showDate(day, eventTitle, eventID);
                     }
                 }
             }
@@ -223,9 +228,10 @@ public class AgendaController extends Controller implements Initializable{
     }
 
 
-    public void showDate(int dayNumber, String descript, int termID){
-
-        Image img = new Image(getClass().getClassLoader().getResourceAsStream("academiccalendar/ui/icons/icon2.png"));
+    public void showDate(int dayNumber, String descript, int eventID){
+        System.out.println(getClass().getResource(".").getFile());
+        Image img = new Image(getClass().getClassLoader().getResourceAsStream("ressources/icons/icon2.png"));
+        // Image img = new Image(getClass().getClassLoader().getResourceAsStream("../ressources/icons/icon2.png"));
         ImageView imgView = new ImageView();
         imgView.setImage(img);
 
@@ -244,7 +250,7 @@ public class AgendaController extends Controller implements Initializable{
                 int currentNumber = Integer.parseInt(lbl.getText());
 
                 // Did we find a match?
-                if (currentNumber == dayNumber) {
+                if (currentNumber == dayNumber  ) {
 
                     // Add an event label with the given description
                     Label eventLbl = new Label(descript);
@@ -252,16 +258,16 @@ public class AgendaController extends Controller implements Initializable{
                     eventLbl.getStyleClass().add("event-label");
 
                     // Save the term ID in accessible text
-                    eventLbl.setAccessibleText(Integer.toString(termID));
+                    eventLbl.setAccessibleText(Integer.toString(eventID));
                     System.out.println(eventLbl.getAccessibleText());
 
                     eventLbl.addEventHandler(MouseEvent.MOUSE_PRESSED, (e)->{
-                        editEvent((VBox)eventLbl.getParent(), eventLbl.getText(), eventLbl.getAccessibleText());
+                        editEvent((VBox)eventLbl.getParent(), eventLbl.getText(), eventID);
 
                     });
 
 
-                    eventLbl.setStyle("-fx-background-color: rgb(152,12,32)");
+                    eventLbl.setStyle("-fx-background-color: rgb(235,243,248)");
 
                     // Stretch to fill box
                     eventLbl.setMaxWidth(Double.MAX_VALUE);
@@ -419,6 +425,7 @@ public class AgendaController extends Controller implements Initializable{
 
         monthLabel.setText( Model.getInstance().getMonthName(Model.getInstance().viewing_month) + " " + Integer.toString(Model.getInstance().viewing_year));
         loadCalendarLabels();
+        populateMonthWithEvents();
     }
 
     public void nextMonth(){
@@ -431,16 +438,21 @@ public class AgendaController extends Controller implements Initializable{
         }
         monthLabel.setText( Model.getInstance().getMonthName(Model.getInstance().viewing_month) + " " + Integer.toString(Model.getInstance().viewing_year));
         loadCalendarLabels();
+
+        populateMonthWithEvents();
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         Model.getInstance().viewing_year =  Calendar.getInstance().get(Calendar.YEAR);
         Model.getInstance().viewing_month =  Calendar.getInstance().get(Calendar.MONTH);
         monthLabel.setText( Model.getInstance().getMonthName(Model.getInstance().viewing_month) + " " + Integer.toString(Model.getInstance().viewing_year));
         initializeCalendarGrid();
         loadCalendarLabels();
+        // Peupler evenements
+        populateMonthWithEvents();
         initializeCalendarWeekdayHeader();
     }
 }

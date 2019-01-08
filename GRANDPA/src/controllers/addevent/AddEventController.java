@@ -11,6 +11,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import controllers.AgendaController;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,6 +23,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -35,9 +37,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -69,8 +69,14 @@ public class AddEventController implements Initializable {
     private JFXTextField subject;
     
     @FXML
-    private JFXComboBox<String> termSelect;
-    
+    private JFXComboBox<String> heuresSelect;
+
+    @FXML
+    private JFXComboBox<String> minutesSelect;
+
+    @FXML
+    private TextArea descriptionEvent;
+
     // Buttons
     @FXML
     private JFXButton saveButton;
@@ -102,30 +108,29 @@ public class AddEventController implements Initializable {
     //Function that inserts a new event in the database
      @FXML
     void save(MouseEvent event) {
-        /*
-        // Get the calendar name
-        String calendarName = Model.getInstance().calendar_name;
+
         
         // Define date format
         DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");        
         
         //Check if the user inputted information in all required fields!
-        if(subject.getText().isEmpty()||termSelect.getSelectionModel().isEmpty()
+        if(subject.getText().isEmpty() || heuresSelect.getSelectionModel().isEmpty()
+                || minutesSelect.getSelectionModel().isEmpty()
                 ||date.getValue() == null){
             Alert alertMessage = new Alert(Alert.AlertType.ERROR);
             alertMessage.setHeaderText(null);
-            alertMessage.setContentText("Please fill out all fields");
+            alertMessage.setContentText("Veuillez remplir les champs du formaulaire !");
             alertMessage.showAndWait();
             return;
         }
         
         //Check if the event descritption contains the character ~ because it cannot contain it due to database and filtering issues
-        if (subject.getText().contains("~"))
+        if (subject.getText().contains("~") || descriptionEvent.getText().contains("~"))
         {
             //Show message indicating that the event description cannot contain the character ~
             Alert alertMessage = new Alert(Alert.AlertType.WARNING);
             alertMessage.setHeaderText(null);
-            alertMessage.setContentText("Event Description cannot contain the character ~");
+            alertMessage.setContentText("Caractère spécial  ( ~ )  nom autorisé !");
             alertMessage.showAndWait();
             return;
         }
@@ -138,24 +143,24 @@ public class AddEventController implements Initializable {
         // Subject for the event
         String eventSubject = subject.getText();
 
-        // Get term that was selected by the user
-        String term = termSelect.getValue();
-        
-        // variable that holds the ID value of the term selected by the user. It set to 0 becasue no selection has been made yet
-        int chosenTermID = 0;
-        
-        // Get the ID of the selected term from the database based on the selected term's name
-        chosenTermID = databaseHandler.getTermID(term);
-        
+        // Event's hour and minutes
+         String evtHour = heuresSelect.getValue();
+         String evtMin = minutesSelect.getValue();
+
+        // Desciption/ Notes for the  event
+        String eventDescript = descriptionEvent.getText();
+
+
+
         //---------------------------------------------------------
-        //Insert new event into the EVENTS table in the database
+        //Insert new event into the 'evenement' table in the database
         
         //Query to get ID for the selected Term
-        String insertQuery = "INSERT INTO EVENTS VALUES ("
+        String insertQuery = "INSERT INTO evenement (title , description, dateEvent , heureEvent ) values("
                 + "'" + eventSubject + "', "
+                + "'" + eventDescript + "', "
                 + "'" + calendarDate + "', "
-                + chosenTermID + ", "
-                + "'" + calendarName + "'"
+                + "'" + evtHour + "-" + evtMin+ "'"
                 + ")";
         
         
@@ -163,17 +168,17 @@ public class AddEventController implements Initializable {
         if(databaseHandler.executeAction(insertQuery)) {
             Alert alertMessage = new Alert(Alert.AlertType.INFORMATION);
             alertMessage.setHeaderText(null);
-            alertMessage.setContentText("Event was added successfully");
+            alertMessage.setContentText("Evènement correctement inséré !");
             alertMessage.showAndWait();
         }
         else //if there is an error
         {
             Alert alertMessage = new Alert(Alert.AlertType.ERROR);
             alertMessage.setHeaderText(null);
-            alertMessage.setContentText("Adding Event Failed!\nThere is already an event with the same information");
+            alertMessage.setContentText("Erreur d'enregistrement !\n Veuillez reessayer avec de nouvelles informations !");
             alertMessage.showAndWait();
         }
-        */
+
         //Show the new event on the calendar according to the selected filters
         mainController.repaintView();
             
@@ -192,7 +197,7 @@ public class AddEventController implements Initializable {
 
     //Function that fills the date picker based on the clicked date 
     void autofillDatePicker() {
-       /*
+
         // Get selected day, month, and year and autofill date selection
        int day = Model.getInstance().event_day;
        int month = Model.getInstance().event_month + 1;
@@ -200,7 +205,7 @@ public class AddEventController implements Initializable {
        
        // Set default value for datepicker
        date.setValue(LocalDate.of(year, month, day));
-       */
+
     }
     
     /**
@@ -208,26 +213,27 @@ public class AddEventController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
+
         //*** Instantiate DBHandler object *******************
         databaseHandler = new DatabaseConnector();
         //****************************************************
-        
-        
+
         //Fill the date picker
         autofillDatePicker();
-        /*
+
         //Get the list of exisitng terms from the database and show them in the correspondent drop-down menu
-         try {
-             //Get terms from database and store them in the ObservableList variable "terms"
-             ObservableList<String> terms = databaseHandler.getListOfTerms();
-             //Show list of terms in the drop-down menu
-             termSelect.setItems(terms);
-         } catch (SQLException ex) {
-             Logger.getLogger(AddEventController.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         */
+
+
+        List<String> listHours = Arrays.asList(databaseHandler.getHoursEvent());
+        ObservableList<String> hours = FXCollections.observableList(listHours);
+        //Show list of terms in the drop-down menu
+        heuresSelect.setItems(hours);
+
+        List<String> listMinutes = Arrays.asList(databaseHandler.getMinutesEvent());
+        ObservableList<String> min = FXCollections.observableList(listMinutes);
+        //Show list of terms in the drop-down menu
+        minutesSelect.setItems(min);
+
    
         //**********************************************************************
         // ************* Everything below is for Draggable Window ********

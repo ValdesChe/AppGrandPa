@@ -1,13 +1,12 @@
 
 .event-label {
-    -fx-font: 13px "System";
+    -fx-font: 10px "System";
     -fx-background-color: white;
-    -fx-border-width:1.5;
-    -fx-padding: 2px;
-    -fx-border-radius: 4px;
+    -fx-border-width:1;
+    -fx-padding: 1px;
+    -fx-border-radius: 2px;
     -fx-background-radius: 4px;
     -fx-border-color: #333;
-    -fx-padding: 2px;
     -fx-text-fill: black;
     -fx-background-insets: 2px;
 }

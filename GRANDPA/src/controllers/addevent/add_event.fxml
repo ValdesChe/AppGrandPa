@@ -6,6 +6,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="292.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.addevent.AddEventController">
+<AnchorPane fx:id="rootPane" prefHeight="327.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.addevent.AddEventController">
    <children>
       <HBox id="header" fx:id="header" prefHeight="35.0" prefWidth="377.0" stylesheets="@../../ressources/style/materialButtonStyle.css">
          <children>
@@ -45,19 +46,23 @@
       </HBox>
       <VBox layoutX="10.0" layoutY="57.0" prefHeight="140.0" prefWidth="320.0" spacing="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="57.0">
          <children>
-            <JFXTextField fx:id="subject" focusColor="#4d4d4d" labelFloat="true" prefHeight="40.0" prefWidth="337.0" promptText="Titre">
+            <JFXTextField fx:id="subject" focusColor="#4d4d4d" labelFloat="true" prefHeight="40.0" prefWidth="337.0" promptText="Titre de l'évènement">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXComboBox fx:id="termSelect" focusColor="#4d4d4d" layoutX="10.0" layoutY="102.0" prefHeight="25.0" prefWidth="166.0" promptText="Term" />
-            <JFXDatePicker fx:id="date" promptText="Date de l'évènement" />
-            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <JFXDatePicker fx:id="date" prefHeight="28.0" prefWidth="220.0" promptText="Date de l'évènement" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <JFXComboBox fx:id="heuresSelect" focusColor="#4d4d4d" prefHeight="25.0" prefWidth="139.0" promptText="Heure de rappel" />
+                  <JFXComboBox fx:id="minutesSelect" focusColor="#4d4d4d" prefHeight="25.0" prefWidth="126.0" promptText="Minute de rappel" translateX="15.0" />
+               </children></HBox>
          </children>
       </VBox>
+      <TextArea fx:id="descriptionEvent" accessibleHelp="Desciption de  l'évènement" accessibleText="Desciption de  l'évènement" layoutX="10.0" layoutY="197.0" prefHeight="65.0" prefWidth="357.0" />
       <HBox layoutY="181.0" prefHeight="41.0" prefWidth="377.0" stylesheets="@../../ressources/style/materialButtonStyle.css" AnchorPane.bottomAnchor="0.0">
          <children>
-            <JFXButton fx:id="saveButton" onMouseClicked="#save" prefHeight="40.0" prefWidth="200.0" text="Save">
+            <JFXButton fx:id="saveButton" onMouseClicked="#save" prefHeight="40.0" prefWidth="200.0" text="Enregistrer">
                <font>
                   <Font size="13.0" />
                </font>

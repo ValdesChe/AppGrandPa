@@ -16,8 +16,34 @@ public class DatabaseConnector {
     //Variable that controls whether or not the tables have to be created and populated
     private static boolean tablesAlreadyExist = false;
 
+    public static String [] hoursEvent =
+            {"01H", "02H", "03H", "04H", "05H", "06H", "07H", "08H", "09H", "10H", "11H",
+                    "12H", "13H", "14H", "15H", "16H", "17H", "18H", "19H",
+                    "20H", "21H", "22H", "23H", "24H" };
 
 
+    public static String [] minutesEvent =
+            {"00MIN", "01MIN", "02MIN", "03MIN", "04MIN", "05MIN",
+                    "06MIN", "07MIN", "08MIN", "09MIN", "10MIN",
+                    "11MIN", "12MIN", "13MIN", "14MIN", "15MIN",
+                    "16MIN", "17MIN", "18MIN", "19MIN", "20MIN",
+                    "21MIN", "22MIN", "23MIN", "24MIN", "25MIN",
+                    "26MIN", "27MIN", "28MIN", "29MIN", "30MIN",
+                    "31MIN", "32MIN", "33MIN", "34MIN", "35MIN",
+                    "36MIN", "37MIN", "38MIN", "39MIN", "40MIN",
+                    "41MIN", "42MIN", "43MIN", "44MIN", "45MIN",
+                    "46MIN", "47MIN", "48MIN",
+                    "49MIN", "50MIN", "51MIN", "52MIN", "53MIN", "54MIN",
+                    "55MIN", "56MIN", "57MIN", "58MIN", "59MIN",  };
+
+
+    public static String[] getHoursEvent() {
+        return hoursEvent;
+    }
+
+    public static String[] getMinutesEvent() {
+        return minutesEvent;
+    }
 
     //Constructor
     public DatabaseConnector() {
@@ -220,6 +246,7 @@ public class DatabaseConnector {
     //*****************************************************************************************************************************
     //Function that executes a SELECT query and returns the requested values/data from the database
     public ResultSet executeQuery(String query) {
+        System.out.println("DB_LOG:" + query );
         ResultSet result;
 
         try {
