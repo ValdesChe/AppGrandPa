@@ -67,7 +67,7 @@ public class EditEventController implements Initializable {
     private double xOffset;
     private double yOffset;
     
-    
+    /*
     //Function that fills the date picker based on the clicked event's date
     void autofillDatePicker() {
         
@@ -106,7 +106,7 @@ public class EditEventController implements Initializable {
        //Fill term drop-down menu with current event's term
        termSelect.getSelectionModel().select(chosenTermName);
     }
-    
+    */
     /**
      * Initializes the controller class.
      */
@@ -119,7 +119,7 @@ public class EditEventController implements Initializable {
         //****************************************************
         
         //Fill the date picker
-        autofillDatePicker();
+       // autofillDatePicker();
 
         // ************* Everything below is for Draggable Window ********
         
@@ -221,7 +221,7 @@ public class EditEventController implements Initializable {
         int month = Model.getInstance().event_month + 1;
         int year = Model.getInstance().event_year;
         String eventDate = year + "-" + month + "-" + day;
-        int eventID = Model.getInstance().event_term_id;
+        //int eventID = Model.getInstance().event_term_id;
         String descript = Model.getInstance().event_subject;
 
         
@@ -278,9 +278,9 @@ public class EditEventController implements Initializable {
         int month = Model.getInstance().event_month + 1;
         int year = Model.getInstance().event_year;
         String eventDate = year + "-" + month + "-" + day;
-        int termID = Model.getInstance().event_term_id;
+        //int termID = Model.getInstance().event_term_id;
         String descript = Model.getInstance().event_subject;
-        String calName = Model.getInstance().calendar_name;
+       // String calName = Model.getInstance().calendar_name;
 
         //Get the original date of the event to be updated in the format yyyy-mm-dd
         SimpleDateFormat auxDateFormat = new SimpleDateFormat("yyyy-mm-dd");

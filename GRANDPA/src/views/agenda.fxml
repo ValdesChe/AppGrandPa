@@ -71,13 +71,13 @@
                         <Font name="Arial Italic" size="25.0" />
                     </font>
                 </Label>
-            <AnchorPane layoutX="6.0" layoutY="63.0" prefHeight="437.0" prefWidth="457.0">
+            <AnchorPane layoutX="6.0" layoutY="51.0" prefHeight="449.0" prefWidth="457.0">
                <children>
-                  <VBox fx:id="centerArea" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="450.0">
+                  <VBox fx:id="centerArea" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="450.0">
                      <children>
-                        <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="422.0" prefWidth="450.0" stylesheets="@../ressources/style/scrollbarStyle.css" vbarPolicy="ALWAYS">
+                        <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="439.0" prefWidth="450.0" stylesheets="@../ressources/style/scrollbarStyle.css" vbarPolicy="ALWAYS">
                            <content>
-                              <VBox prefHeight="407.0" prefWidth="438.0">
+                              <VBox prefHeight="432.0" prefWidth="438.0">
                                  <children>
                                     <GridPane prefHeight="45.0" prefWidth="438.0">
                                       <columnConstraints>
@@ -124,7 +124,7 @@
                                        </children>
                                     </GridPane>
                                     <HBox fx:id="weekdayHeader" minHeight="-Infinity" prefHeight="51.0" prefWidth="438.0" />
-                                    <GridPane fx:id="calendarGrid" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="279.0" prefWidth="438.0" styleClass="calendar_pane">
+                                    <GridPane fx:id="calendarGrid" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="340.0" prefWidth="438.0" styleClass="calendar_pane">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -135,12 +135,12 @@
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                        </columnConstraints>
                                        <rowConstraints>
-                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="39.0" prefHeight="48.0" vgrow="ALWAYS" />
-                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="43.0" prefHeight="44.0" vgrow="ALWAYS" />
-                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="9.0" prefHeight="45.0" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="39.0" prefHeight="54.0" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="43.0" prefHeight="58.0" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="9.0" prefHeight="60.0" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="40.0" prefHeight="58.0" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="4.0" prefHeight="57.0" vgrow="ALWAYS" />
                                           <RowConstraints maxHeight="1.7976931348623157E308" minHeight="40.0" prefHeight="47.0" vgrow="ALWAYS" />
-                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="4.0" prefHeight="45.0" vgrow="ALWAYS" />
-                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="40.0" prefHeight="48.0" vgrow="ALWAYS" />
                                        </rowConstraints>
                                     </GridPane>
                                  </children>
