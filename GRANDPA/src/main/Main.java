@@ -1,13 +1,17 @@
 package main;
 
+import classes.prayer.ThreadAdane;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 public class Main extends Application {
     private double xOffset = 0;
@@ -40,6 +44,14 @@ public class Main extends Application {
             }
         });
 
+
+        ThreadAdane threadAdane = new ThreadAdane(2);
+
+
+
+
+
+
         /*Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -47,7 +59,13 @@ public class Main extends Application {
             }
         });*/
         primaryStage.show();
+
+        threadAdane.start();
+
+
     }
+
+
 
 
     public static void main(String[] args) {

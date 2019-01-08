@@ -87,7 +87,7 @@
                   <Font name="Arial" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="fajrLbl" layoutX="189.0" layoutY="148.0" prefHeight="17.0" prefWidth="206.0">
+            <Label fx:id="fajrLbl" layoutX="190.0" layoutY="148.0" prefHeight="17.0" prefWidth="206.0">
                <font>
                   <Font size="25.0" />
                </font>
@@ -120,6 +120,11 @@
             <Label fx:id="villeLbl" layoutX="286.0" layoutY="82.0" prefHeight="25.0" prefWidth="173.0">
                <font>
                   <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="heureLbl" layoutX="36.0" layoutY="420.0" prefHeight="44.0" prefWidth="396.0" text="Label">
+               <font>
+                  <Font name="Arial" size="17.0" />
                </font>
             </Label>
             </children>
