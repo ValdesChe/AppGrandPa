@@ -109,21 +109,26 @@ public class AgendaController extends Controller implements Initializable{
         }
     }
 
-    private void editEvent(VBox day, String descript, int termID) {
+    private void editEvent(VBox day, String title, int eventID , String descript , String hoursEvt , String minutesEvt ) {
 
         // Store event fields in data singleton
         Label dayLbl = (Label)day.getChildren().get(0);
         Model.getInstance().event_day = Integer.parseInt(dayLbl.getText());
         Model.getInstance().event_month = Model.getInstance().viewing_month;
         Model.getInstance().event_year = Model.getInstance().viewing_year;
-        Model.getInstance().event_subject = descript;
-        Model.getInstance().event_id = termID;
+        Model.getInstance().event_subject = title;
+        Model.getInstance().event_description = descript;
+        Model.getInstance().event_id = eventID;
+
+        Model.getInstance().event_hour = hoursEvt;
+        Model.getInstance().event_minutes = minutesEvt;
+
 
         // When user clicks on any date in the calendar, event editor window opens
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/academiccalendar/ui/editevent/edit_event.fxml"));
+            loader.setLocation(getClass().getResource("editevent/edit_event.fxml"));
             AnchorPane rootLayout = (AnchorPane) loader.load();
             Stage stage = new Stage(StageStyle.UNDECORATED);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -202,7 +207,7 @@ public class AgendaController extends Controller implements Initializable{
                 Date eventDate = result.getDate("dateEvent");
                 String eventDescript = result.getString("description");
                 String eventTitle = result.getString("title");
-                String EventParts = result.getString("heureEvent");
+                String eventParts = result.getString("heureEvent");
                 int eventID = result.getInt("id_event");
                 // Check for year we have selected
 
@@ -218,7 +223,7 @@ public class AgendaController extends Controller implements Initializable{
                         int day = eventDate.toLocalDate().getDayOfMonth();
 
                         // Display decription of the event given it's day
-                        showDate(day, eventTitle, eventID);
+                        showDate(day, eventTitle , eventID, eventDescript , eventParts.split("-")[0], eventParts.split("-")[1]);
                     }
                 }
             }
@@ -228,7 +233,7 @@ public class AgendaController extends Controller implements Initializable{
     }
 
 
-    public void showDate(int dayNumber, String descript, int eventID){
+    public void showDate(int dayNumber, String title, int eventID , String descript , String hoursEvt , String minutesEvt){
         System.out.println(getClass().getResource(".").getFile());
         Image img = new Image(getClass().getClassLoader().getResourceAsStream("ressources/icons/icon2.png"));
         // Image img = new Image(getClass().getClassLoader().getResourceAsStream("../ressources/icons/icon2.png"));
@@ -253,7 +258,7 @@ public class AgendaController extends Controller implements Initializable{
                 if (currentNumber == dayNumber  ) {
 
                     // Add an event label with the given description
-                    Label eventLbl = new Label(descript);
+                    Label eventLbl = new Label(title);
                     eventLbl.setGraphic(imgView);
                     eventLbl.getStyleClass().add("event-label");
 
@@ -262,7 +267,7 @@ public class AgendaController extends Controller implements Initializable{
                     System.out.println(eventLbl.getAccessibleText());
 
                     eventLbl.addEventHandler(MouseEvent.MOUSE_PRESSED, (e)->{
-                        editEvent((VBox)eventLbl.getParent(), eventLbl.getText(), eventID);
+                        editEvent((VBox)eventLbl.getParent(), eventLbl.getText(), eventID , descript , hoursEvt , minutesEvt );
 
                     });
 

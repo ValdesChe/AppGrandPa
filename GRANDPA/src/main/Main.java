@@ -45,13 +45,7 @@ public class Main extends Application {
         });
 
 
-        ThreadAdane threadAdane = new ThreadAdane(2);
-
-
-
-
-
-
+        // ThreadAdane threadAdane = new ThreadAdane(2);
         /*Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -60,7 +54,7 @@ public class Main extends Application {
         });*/
         primaryStage.show();
 
-        threadAdane.start();
+        // threadAdane.start();
 
 
     }

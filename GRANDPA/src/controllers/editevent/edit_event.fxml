@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<AnchorPane fx:id="rootPane" prefHeight="249.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.editevent.EditEventController">
+
+<AnchorPane fx:id="rootPane" prefHeight="324.0" prefWidth="367.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.editevent.EditEventController">
    <children>
-      <HBox id="header" prefHeight="35.0" prefWidth="345.0" stylesheets="@../../ressources/style/materialButtonStyle.css" AnchorPane.topAnchor="0.0">
+      <HBox id="header" prefHeight="35.0" prefWidth="367.0" stylesheets="@../../ressources/style/materialButtonStyle.css" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="topLabel" prefHeight="25.0" prefWidth="313.0" text="Edit Event">
                <font>
@@ -37,26 +44,32 @@
             </Label>
          </children>
       </HBox>
-      <VBox layoutX="15.0" layoutY="57.0" prefHeight="140.0" prefWidth="320.0" spacing="20.0">
+
+      <VBox layoutX="10.0" layoutY="57.0" prefHeight="140.0" prefWidth="320.0" spacing="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="57.0">
          <children>
-            <JFXTextField fx:id="subject" focusColor="#4d4d4d" labelFloat="true" prefHeight="40.0" prefWidth="337.0" promptText="Subject">
+            <JFXTextField fx:id="subject" focusColor="#4d4d4d" labelFloat="true" prefHeight="40.0" prefWidth="337.0" promptText="Titre de l'évènement">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXComboBox fx:id="termSelect" focusColor="#4d4d4d" layoutX="10.0" layoutY="102.0" prefHeight="25.0" prefWidth="166.0" promptText="Term" />
-            <JFXDatePicker fx:id="date" promptText="Date of Event" />
-            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <JFXDatePicker fx:id="date" prefHeight="28.0" prefWidth="220.0" promptText="Date de l'évènement" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <JFXComboBox fx:id="heuresSelect" focusColor="#4d4d4d" prefHeight="25.0" prefWidth="139.0" promptText="Heure de rappel" />
+                  <JFXComboBox fx:id="minutesSelect" focusColor="#4d4d4d" prefHeight="25.0" prefWidth="126.0" promptText="Minute de rappel" translateX="15.0" />
+               </children></HBox>
          </children>
       </VBox>
+      <TextArea fx:id="descriptionEvent" accessibleHelp="Desciption de  l'évènement" accessibleText="Desciption de  l'évènement" layoutX="10.0" layoutY="197.0" prefHeight="65.0" prefWidth="347.0" />
+
       <HBox layoutX="5.0" layoutY="181.0" prefHeight="41.0" prefWidth="345.0" stylesheets="@../../ressources/style/materialButtonStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <JFXButton onMouseClicked="#update" prefHeight="40.0" prefWidth="200.0" text="Update">
+            <JFXButton onMouseClicked="#update" prefHeight="40.0" prefWidth="200.0" text="Enregistrer">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXButton>
-            <JFXButton onMouseClicked="#delete" prefHeight="40.0" prefWidth="200.0" text="Delete">
+            <JFXButton onMouseClicked="#delete" prefHeight="40.0" prefWidth="200.0" text="Supprimer">
                <font>
                   <Font size="13.0" />
                </font>

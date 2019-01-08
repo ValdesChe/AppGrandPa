@@ -61,6 +61,8 @@ public class AddEventController implements Initializable {
     // Structure
     @FXML
     private Label topLabel;
+
+
     @FXML
     private AnchorPane rootPane;
     

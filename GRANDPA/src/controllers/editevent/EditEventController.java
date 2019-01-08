@@ -5,11 +5,14 @@ package controllers.editevent;
 
 import classes.utils.Model;
 import classes.database.DatabaseConnector;
+import com.jfoenix.controls.JFXButton;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import controllers.addevent.AddEventController;
 import controllers.AgendaController;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -20,6 +23,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -31,9 +35,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -49,14 +51,27 @@ public class EditEventController implements Initializable {
     //--------------------------------------------------------------------
     @FXML
     private Label topLabel;
-    @FXML
-    private JFXTextField subject;
-    @FXML
-    private JFXComboBox<String> termSelect;
-    @FXML
-    private JFXDatePicker date;
+
     @FXML
     private AnchorPane rootPane;
+
+    // Date picker
+    @FXML
+    private JFXDatePicker date;
+
+    // Text fields
+    @FXML
+    private JFXTextField subject;
+
+    @FXML
+    private JFXComboBox<String> heuresSelect;
+
+    @FXML
+    private JFXComboBox<String> minutesSelect;
+
+    @FXML
+    private TextArea descriptionEvent;
+
     
     //Set main controller
     public void setMainController(AgendaController mainController) {
@@ -67,7 +82,7 @@ public class EditEventController implements Initializable {
     private double xOffset;
     private double yOffset;
     
-    /*
+
     //Function that fills the date picker based on the clicked event's date
     void autofillDatePicker() {
         
@@ -75,38 +90,27 @@ public class EditEventController implements Initializable {
         int day = Model.getInstance().event_day;
         int month = Model.getInstance().event_month + 1;
         int year = Model.getInstance().event_year;
-        int termID = Model.getInstance().event_term_id;
-        String descript = Model.getInstance().event_subject;
-       
-        //Query to get ID for the selected Term
-        String getIDQuery = "SELECT TermName From TERMS "
-                + "WHERE TERMS.TermID= " + termID + " ";
-        
-        //Varialbe that holds the name of the current event's term based on a given term ID
-        String chosenTermName = "";
+        int eventID = Model.getInstance().event_id;
 
-        //Store the results from executing the Query
-        ResultSet result = databaseHandler.executeQuery(getIDQuery);
-        //Try-catch statements that will get the ID if a result was actually gotten back from the database
-        try {
-             while(result.next()){
-                 //store ID into the corresponding variable
-                 chosenTermName = result.getString("TermName");
-             }
-        } catch (SQLException ex) {
-             Logger.getLogger(AddEventController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
+        String title = Model.getInstance().event_subject;
+        String descript = Model.getInstance().event_description;
+
+
+        String eventHours = Model.getInstance().event_hour;
+        String eventMin = Model.getInstance().event_minutes;
+
        // Set default value for datepicker
        date.setValue(LocalDate.of(year, month, day));
        
        // Fill description field
-       subject.setText(descript);
-       
-       //Fill term drop-down menu with current event's term
-       termSelect.getSelectionModel().select(chosenTermName);
+       subject.setText(title);
+       descriptionEvent.setText(descript);
+
+       heuresSelect.getSelectionModel().select(eventHours);
+       minutesSelect.getSelectionModel().select(eventMin);
+
     }
-    */
+
     /**
      * Initializes the controller class.
      */
@@ -117,9 +121,20 @@ public class EditEventController implements Initializable {
         //*** Instantiate DatabaseConnector object *******************
         databaseHandler = new DatabaseConnector();
         //****************************************************
-        
+
+
+        List<String> listHours = Arrays.asList(databaseHandler.getHoursEvent());
+        ObservableList<String> hours = FXCollections.observableList(listHours);
+        //Show list of terms in the drop-down menu
+        heuresSelect.setItems(hours);
+
+        List<String> listMinutes = Arrays.asList(databaseHandler.getMinutesEvent());
+        ObservableList<String> min = FXCollections.observableList(listMinutes);
+        //Show list of terms in the drop-down menu
+        minutesSelect.setItems(min);
+
         //Fill the date picker
-       // autofillDatePicker();
+        autofillDatePicker();
 
         // ************* Everything below is for Draggable Window ********
         
@@ -245,19 +260,60 @@ public class EditEventController implements Initializable {
         // Subject for the event
         String newEventSubject = subject.getText();
         // Get term that was selected by the user
-        String term = termSelect.getValue();
-        
-        
+
+
+        // Event's hour and minutes
+        String newEventHour = heuresSelect.getValue();
+        String newEventMin = minutesSelect.getValue();
+
+        // Desciption/ Notes for the  event
+        String newEventDescript = descriptionEvent.getText();
+
+
         //Check if the event descritption contains the character ~ because it cannot contain it due to database and filtering issues
-        if (newEventSubject.contains("~"))
+        if (newEventSubject.contains("~") || newEventDescript.contains("~") )
         {
             //Show message indicating that the event description cannot contain the character ~
             Alert alertMessage = new Alert(AlertType.WARNING);
             alertMessage.setHeaderText(null);
-            alertMessage.setContentText("Event Description cannot contain the character ~");
+            alertMessage.setContentText("Caractere irregulier rencontré ~");
             alertMessage.showAndWait();
             return;
         }
+
+        // If all correct
+        String updateEventQuery = "UPDATE evenement"
+                + " SET "
+                + "title='" + newEventSubject + "', "
+                + "description='" + newEventDescript + "', "
+                + "dateEvent='" + newCalendarDate + "' ,"
+                + "heureEvent='" + newEventHour + "-" + newEventMin + "' "
+                + " WHERE "
+                + "id_event = " + Model.getInstance().event_id + " ";
+
+
+        //Execute query in otder to update the info for the selected event
+        //and
+        //Check if the update of the event in the database was successful, and show message either if it was or not
+        if(databaseHandler.executeAction(updateEventQuery)) {
+            Alert alertMessage = new Alert(Alert.AlertType.INFORMATION);
+            alertMessage.setHeaderText(null);
+            alertMessage.setContentText("Votre évènement a été correctement mis à jour !");
+            alertMessage.showAndWait();
+
+            // Update view
+            mainController.repaintView();
+
+        }
+        else //if there is an error
+        {
+            Alert alertMessage = new Alert(Alert.AlertType.ERROR);
+            alertMessage.setHeaderText(null);
+            alertMessage.setContentText("Echec lors de la mise à jour de l'évènement ! \n Probleme technique ...");
+            alertMessage.showAndWait();
+        }
+
+
 
 
         // Close the window
@@ -269,23 +325,38 @@ public class EditEventController implements Initializable {
 
     public void deleteEvent() {
 
-        //**********************************************************************
-        //*******   Get INFO of the Event to be edited/upated             ******
-        //*******   which is the term ID, event description, event date,  ******
-        //*******   and calendar name of the event to be edited           ******
-        //**********************************************************************
-        int day = Model.getInstance().event_day;
-        int month = Model.getInstance().event_month + 1;
-        int year = Model.getInstance().event_year;
-        String eventDate = year + "-" + month + "-" + day;
-        //int termID = Model.getInstance().event_term_id;
-        String descript = Model.getInstance().event_subject;
-       // String calName = Model.getInstance().calendar_name;
 
-        //Get the original date of the event to be updated in the format yyyy-mm-dd
-        SimpleDateFormat auxDateFormat = new SimpleDateFormat("yyyy-mm-dd");
-        String auxDate = "empty";
+        //Query that will delete the selected event
+        String deleteEventQuery = "DELETE FROM evenement "
+                + "WHERE "
+                + "id_event = " + Model.getInstance().event_id + " ";
 
+        //Execute query that deletes the selected event
+        boolean eventWasDeleted = databaseHandler.executeAction(deleteEventQuery);
+
+        if (eventWasDeleted)
+        {
+            //Show message indicating that the selected rule was deleted
+            Alert alertMessage = new Alert(Alert.AlertType.INFORMATION);
+            alertMessage.setHeaderText(null);
+            alertMessage.setContentText("L'évènement ' "+ Model.getInstance().event_subject + " ' supprimé avec succès !");
+            alertMessage.showAndWait();
+
+            // Update view
+            mainController.repaintView();
+
+            // Close the window, so that when user clicks on "Manage Rules" only the remaining existing rules appear
+            Stage stage = (Stage) rootPane.getScene().getWindow();
+            stage.close();
+        }
+        else
+        {
+            //Show message indicating that the rule could not be deleted
+            Alert alertMessage = new Alert(Alert.AlertType.ERROR);
+            alertMessage.setHeaderText(null);
+            alertMessage.setContentText("Echec de la suppression !");
+            alertMessage.showAndWait();
+        }
         
     }
     

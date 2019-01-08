@@ -50,6 +50,7 @@ public class JavaEmail {
         emailMessage = new MimeMessage(mailSession);
 
         for (int i = 0; i < toEmails.length; i++) {
+            System.out.println(toEmail[i]);
             emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmails[i]));
         }
 
