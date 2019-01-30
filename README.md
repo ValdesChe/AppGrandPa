@@ -3,8 +3,8 @@
 
 
 # FEATURES
-  ⋅⋅* Contact management.
-  ⋅⋅* Pharmacy management.
+⋅⋅*Contact management.
+⋅⋅*Pharmacy management.
   ⋅⋅* Contact manager.
   ⋅⋅* Calendar management.
   ⋅⋅* Prayer time reminder.
