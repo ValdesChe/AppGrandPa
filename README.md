@@ -3,11 +3,11 @@
 
 
 # FEATURES
-⋅⋅*Contact management.
-⋅⋅*Pharmacy management.
-  ⋅⋅* Contact manager.
-  ⋅⋅* Calendar management.
-  ⋅⋅* Prayer time reminder.
++ Contact management.
++ Pharmacy management.
++ Contact manager.
++ Calendar management.
++ Prayer time reminder.
   
   
 ## CONTRIBUTORS
